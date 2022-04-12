@@ -1,0 +1,67 @@
+{{ $sidebartype := .Scratch.Get "sidebartype" }}
+<div class="sidebarbox_mb sidebarbox_mb1" >
+	<ul>
+	{{- if eq $sidebartype "Games" -}}
+		<li>
+			<p class="tit">{{ T `browse`}}</p>
+			<a type="all" href="{{ "games/" | relLangURL}}"><span>{{T `allgames`}}</span><span>{{$.Site.Taxonomies.categories.games.Count}}</span></a>
+		</li>
+		<li>
+			<p class="tit">{{ T `types`}}</p>
+			{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.games }}
+			  <a type="{{ $taxonomyname }}" href="{{ "games/" | relLangURL}}{{ $taxonomyname | urlize }}"><span>{{ $taxonomyname }}</span><span>{{ sub .Count 1 }}</span></a>
+			{{ end }}
+		</li>
+	{{- end -}}
+	{{- if eq $sidebartype "Tags" -}}
+		<li>
+			<p class="tit">{{ T `browse`}}</p>
+			<a type="all" href="{{ "tags/" | relLangURL}}"><span>{{T `all`}}</span></a>
+		</li>
+		<li>
+			<p class="tit">{{ T `tags`}}</p>
+			{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.tags }}
+			  <a type="{{ $taxonomyname }}" href="{{ "tags/" | relLangURL}}{{ $taxonomyname | urlize }}"><span>{{ $taxonomyname }}</span><span>{{ sub .Count 1 }}</span></a>
+			{{ end }}
+		</li>
+	{{- end -}}
+	</ul>
+</div>
+<script type="text/javascript">
+	var thistitle = {{ .Title }};
+	var thistype = {{$sidebartype}};
+	var isMobile = window.matchMedia && window.matchMedia('only screen and (max-width: 680px)').matches;
+	$(window).resize(function(){
+		isMobile = window.matchMedia && window.matchMedia('only screen and (max-width: 680px)').matches
+		if(!isMobile)$(".sidebarbox_mb").show()
+	})
+	if(thistype != thistitle){
+		$(".sidebarbox_mb a").each(function(){
+			if($(this).attr("type").toLowerCase()==thistitle.toLowerCase()){
+				$(this).addClass("active")
+				thistitle = "000"
+			}
+		})
+	}else{
+		$(".sidebarbox_mb li").eq(0).find("a").addClass("active");
+	}
+	// breadcrumb-item
+	$(".doks-sidebar-toggle").on("click",function(ev){
+		ev.stopPropagation()
+		if($(this).hasClass("doks-collapse")){
+			$(this).removeClass("doks-collapse")
+			if(isMobile)$(".sidebarbox_mb").hide();
+		}else{
+			$(this).addClass("doks-collapse")
+			$(".sidebarbox_mb").show();
+			// $(".sidebarbox_mb").css("max-height","400px")
+		}
+	})
+	$(".sidebarbox_mb").on("click",function(ev){
+		ev.stopPropagation()
+	})
+	$("body").on("click",function(){
+		$(".doks-sidebar-toggle").removeClass("doks-collapse")
+		if(isMobile)$(".sidebarbox_mb").hide()
+	})
+</script>

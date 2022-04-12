@@ -1,0 +1,81 @@
+<div class="slideboxw" style="display: none;" id="homesilde">
+	<div class="bigshowb">
+		<div class="swiper-container">
+			<div class="parallax-bg" style="background-image:url(img/Parallax.jpg)" data-swiper-parallax="-23%"></div>
+			<div class="swiper-wrapper">
+				<!-- 推荐 里面取前6条-->
+				<!-- {{- $pages := where .Site.RegularPages "Type" "news" -}} -->
+				{{ range $elem_index, $elem_val :=where .Site.RegularPages "Params.recommend" true }}
+					{{ if lt $elem_index 6}}
+					<div class="swiper-slide">
+						<img src="{{ .RelPermalink }}{{ .Params.featuredImage }}" >
+						<div class="conbox">
+							<a href="{{ .RelPermalink }}" class="title" data-swiper-parallax="-100">{{ .Title }}</a>
+							<p class="subtitle" data-swiper-parallax="-300">{{ .Description }}</p>
+						</div>
+					</div>
+					{{ end }}
+				{{ end }}
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination swiper-pagination-white"></div>
+		</div>
+	</div>
+	<div class="bigshows">
+		<ul>
+			<!-- 推荐1 里面取前3条 -->
+			{{ range $elem_index, $elem_val :=where .Site.RegularPages "Params.recommend1" true }}
+				{{ if lt $elem_index 3}}
+				<li>
+					<a href="{{ .RelPermalink }}" title="{{ .Title }}">
+						<img src="{{ .RelPermalink }}{{ .Params.featuredImage }}" class="featured-image-preview">
+					</a>
+				</li>
+				{{ end }}
+			{{ end }}
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var slideObj = {
+		init:function(){
+			$("#homesilde").show()
+			setTimeout(function(){
+				var swiper = new Swiper('.swiper-container', {
+					pagination: '.swiper-pagination',
+					paginationClickable: true,
+					parallax: true,
+					speed: 600,
+					autoplay: 5000,//可选选项，自动滑动
+					loop:true
+				});
+			})
+			slide_resizefn();
+			$(window).on("resize",function(){
+				slide_resizefn();
+			});
+		}
+	}
+	function slide_resizefn(){
+		var b1_b_w = 590/800;
+		var b1_s_w = 200/800
+		var b_bl = 590/350;//w/h
+		var s_bl = 200/110//w/h
+		if($(".main").outerWidth()>680){
+			$(".bigshowb").css("height","");
+			$(".bigshowb").css("width",$(".slideboxw").outerWidth()*b1_b_w);
+			$(".bigshows li").css("width",$(".slideboxw").outerWidth()*b1_s_w);
+			$(".slideboxw").css("height",$(".bigshowb").outerWidth()/b_bl);
+			$(".bigshows li").css("height",$(".bigshows li").outerWidth()/s_bl);
+		}else{
+			$(".slideboxw").css("height","auto");
+			$(".bigshowb").css("width","100%");
+			$(".bigshowb").css("height",$(".bigshowb").outerWidth()/b_bl);
+			$(".bigshows li").css("width",$(".bigshowb").outerWidth()/$(".bigshows li").length-4);
+			$(".bigshows li").css("height",$(".bigshows li").outerWidth()/s_bl);
+		}
+	}
+	slideObj.init()
+	
+</script>

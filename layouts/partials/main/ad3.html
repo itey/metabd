@@ -1,0 +1,83 @@
+<div class="zdy_pageadbox3">
+{{- $pages := where .Site.RegularPages "Type" "ads" -}}
+{{- range $elem_index, $elem_val :=$pages -}}
+
+{{- $params := .Params | merge .Site.Params.page -}}
+
+	{{- /* Featured image */ -}}
+	{{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
+	{{- $height := "auto" -}}
+	{{- $width := "auto" -}}
+	{{- with .Resources.GetMatch (printf "%s" ($image)) -}}
+	    {{- $image = .RelPermalink -}}
+	    {{- $height = .Height -}}
+	    {{- $width = .Width -}}
+	{{- end -}}
+	{{- with .Resources.GetMatch "featured-image" -}}
+	    {{- $image = .RelPermalink -}}
+	    {{- $height = .Height -}}
+	    {{- $width = .Width -}}
+	{{- end -}}
+	{{- with .Resources.GetMatch "featured-image-preview" -}}
+	    {{- $image = .RelPermalink -}}
+	    {{- $height = .Height -}}
+	    {{- $width = .Width -}}
+	{{- end -}}
+	{{ if (and (eq $params.adtype "3") (or (eq $params.adshow "all") (eq $params.adshow "other"))) }}
+		<span adico="{{ T `ad` }}" class="zdy_ad3" ihref="{{ $params.link }}" lsrc="{{.RelPermalink}}{{$params.featuredImage | relURL }}" rsrc="{{.RelPermalink}}{{$params.featuredImage1 | relURL }}"></span>
+	{{- end -}}
+{{- end -}}
+</div>
+<script type="text/javascript">
+	var Addata3 = {
+		adbl3:224/450,//224/450
+		showad3index:null,
+		init:function(){
+			var _this = this;
+			if($(".zdy_pageadbox3 .zdy_ad3").length>0){
+				_this.showad3index = _this.randomNum(0,$(".zdy_pageadbox3 .zdy_ad3").length-1);
+				var td = $(".zdy_pageadbox3 .zdy_ad3").eq(_this.showad3index);
+				var addoms = ['<div class="zdy_pagerightad3"><a target="_blank" href="',
+						td.attr("ihref"),
+						'">',
+						'<span class="adico">',
+						td.attr("adico"),
+						'</span>',
+						'<img src="',
+						td.attr("lsrc"),
+						'">',
+					'</a><span class="closegg">x</span></div>'].join("")
+				$(".articlecatalogueboxad").append(addoms);
+				$(".zdy_pagerightad3 .closegg").on("click",function(){
+					$(this).parents(".zdy_pagerightad3").remove()
+				})
+				_this.ad3_resizefn();
+			}
+			$(window).on("resize",function(){
+				if($(".zdy_pageadbox3 .zdy_ad3").length>0){
+					_this.ad3_resizefn();
+				}
+			});
+		},
+		ad3_resizefn:function(){
+			var _this = this;
+			// console.log($(".articlecatalogueboxad").outerHeight())
+			var w = $(".zdy_pagerightad3").outerWidth()/_this.adbl3
+			$(".zdy_pagerightad3").css("height",w)
+		},
+		randomNum:function(minNum,maxNum){
+			switch(arguments.length){
+				case 1: 
+					return parseInt(Math.random()*minNum+1,10); 
+				break; 
+				case 2: 
+					return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
+				break; 
+					default: 
+						return 0; 
+					break; 
+			} 
+		}
+	}
+	Addata3.init();
+</script>

@@ -1,0 +1,705 @@
+.alllist_conbox{
+	// [theme=auto] & {
+	//   background: $zdy_bg;
+	// }
+	// [theme=light] & {
+	//   background: $zdy_bg;
+	// }
+}
+#alllist_con{
+	display: flex;
+	display: -webkit-flex;
+	
+}
+.zdy_newslistli{
+	.featured-image-preview{
+		@include transition(transform 0.4s ease);
+	}
+	.single:hover{
+		// [theme=light] & {
+		//  box-shadow: $zdy-bordershow-hover;
+		// }
+		// [theme=auto] & {
+		//   box-shadow: $zdy-bordershow-hover;
+		// }
+		.featured-image-preview{
+			@include transform(scale(1.05));
+		}
+	}
+}
+.newslist_conbox,
+.communitylist_conbox,
+.tagslist_conbox{
+	.pagelistcon{
+			  background: $zdy-bg1;
+			  box-shadow: $zdy-bordershow;
+			  [theme=dark] & {
+			    box-shadow: $zdy-bordershow-dark;
+				 background: $zdy-bg-dark;
+			  }
+			  [theme=black] & {
+			    box-shadow: $zdy-bordershow-black;
+				 background: $zdy-bg-dark;
+			  }
+			  margin-bottom: 20px;
+			  border-radius: 20px;
+			  flex: 1;
+			  -webkit-flex: 1;
+			  margin-top: 24px;
+			  padding: 0 30px;
+			  margin-left: 10px;
+	}
+	.title{
+			  padding-top: 32px;
+			  font-size: 24px;
+			  font-weight: bold;
+			  margin: 0;
+	}
+	.zdy_newslistli{
+			  padding: 32px 0;
+			  border-bottom: 1px solid $gangbg-dark;
+			  [theme=auto] & {
+			  	border-bottom: 1px solid $gangbg;
+			  }
+			  [theme=light] & {
+			  	border-bottom: 1px solid $gangbg;
+			  }
+	}
+	.zdy_newslistli:last-child{
+		border-bottom: none;
+	}
+	.summary{
+		display: flex;
+		display: -webkit-flex;
+			.featured-image-preview{
+			width: 192px;
+			height: 144px;
+			overflow: hidden;
+			border-radius: 15px;
+			a{
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.zdy_rightbox{
+			flex: 1;
+			-webkit-flex: 1;
+			display: flex;
+			display: -webkit-flex;
+			flex-direction: column;
+			justify-content: center;
+			padding-left: 14px;
+			.single-title{
+				overflow: hidden;
+				width: 100%;
+				max-height: 56px;
+				text-align: left;
+				font-size: 18px;
+				font-weight: bold;
+				line-height: 28px;
+				margin: 0;
+				a{
+					display: block;
+				}
+				@include box(vertical);
+					-webkit-line-clamp: 2;
+				}
+				.content{
+					[theme=auto] & {
+						color: $zdy_color2;
+					}
+					[theme=light] & {
+						color: $zdy_color2;
+					}
+					font-size: 14px;
+					line-height: 22px;
+					height: 44px;
+					overflow: hidden;
+					@include box(vertical);
+					-webkit-line-clamp: 2;
+				p{
+					margin: 0;
+				}
+			}
+			.tipbox{
+				font-size: 13px;
+				color: $zdy_color6;
+				line-height: 24px;
+				padding: 3px 0 10px;
+				a{
+					color: $zdy_color6;
+				}
+			}
+		}
+	}
+}
+.navlist_conbox,
+.tagslist_conbox{
+	.conli{
+		padding-bottom: 15px;
+	}
+	.conli:nth-of-type(1) .tit span{
+		@include linear-gradient(0deg, #486efa 0%, #a881ff 100%);
+	}
+	.conli:nth-of-type(2) .tit span{
+		@include linear-gradient(0deg, #ff8b63 0%, #ffaf59 100%);
+	}
+	.conli:nth-of-type(3) .tit span{
+		@include linear-gradient(0deg, #3bbaff 0%, #2be2fd 100%);
+	}
+	.conli:nth-of-type(4) .tit span{
+		@include linear-gradient(0deg, #ffaf01 0%, #ffda00 100%);
+	}
+	.conli:nth-of-type(5) .tit span{
+		@include linear-gradient(0deg, #d878fc 0%, #fb95ef 100%);
+	}
+	.conli:nth-of-type(6) .tit span{
+		@include linear-gradient(0deg, #28d3b0 0%, #59e496 100%);
+	}
+	.conli:nth-of-type(7) .tit span{
+		@include linear-gradient(0deg, #ffaf01 0%, #ffda00 100%);
+	}
+	.conli:nth-of-type(8) .tit span{
+		@include linear-gradient(0deg, #3bbaff 0%, #2be2fd 100%);
+	}
+	.conli:nth-of-type(9) .tit span{
+		@include linear-gradient(0deg, #28d3b0 0%, #59e496 100%);
+	}
+	.conli:nth-of-type(10) .tit span{
+		@include linear-gradient(0deg, #d878fc 0%, #fb95ef 100%);
+	}
+	.conli:nth-of-type(11) .tit span{
+		@include linear-gradient(0deg, #ff8b63 0%, #ffaf59 100%);
+	}
+	.conli:nth-of-type(12) .tit span{
+		@include linear-gradient(0deg, #486efa 0%, #a881ff 100%);
+	}
+	.pagelistcon{
+			  
+			  margin-bottom: 20px;
+			  border-radius: 20px;
+			  flex: 1;
+			  -webkit-flex: 1;
+			  margin-top: 24px;
+			  margin-left: 10px;
+	}
+	.topnav{
+		// padding: 0 0 20px;
+		line-height: 22px;
+		display: flex;
+		display: -webkit-flex;
+		.tit{
+			margin: 0;
+			font-size: 16px;
+			font-weight: bold;
+			white-space:nowrap;
+			padding-right: 5px;
+			span{
+				// padding-right: 5px;
+				// color: #fff;
+				
+				display: inline-block;
+				width: 24px;
+				height: 24px;
+				line-height: 24px;
+				text-align: center;
+				color: #fff;
+				border-radius: 50%;
+				margin-right: 10px;
+			}
+		}
+		.smnav{
+			flex: 1;
+			-webkit-flex: 1;
+			// overflow: hidden;
+			a{
+				padding: 0 5px;
+			}
+			[theme=auto] & {
+			  color: $zdy_color5;
+			  a{
+			  	color: $zdy_color5;
+			  }
+			  a:hover {
+			    color: $global-link-hover-color;
+			  }
+			}
+			[theme=light] & {
+			  color: $zdy_color5;
+			  a{
+			  	color: $zdy_color5;
+			  }
+			  a:hover {
+			    color: $global-link-hover-color;
+			  }
+			}
+			font-size: 14px;
+			font-weight: bold;
+			
+		}
+		.morebtn{
+			font-size: 14px;
+			font-weight: bold;
+			
+		}
+		[theme=auto] & {
+		  .morebtn{
+		  	color: $zdy_color8;
+		  }
+		  .morebtn:hover {
+		    color: $global-link-hover-color;
+		  }
+		}
+		[theme=light] & {
+		  .morebtn{
+		  	color: $zdy_color8;
+		  }
+		  .morebtn:hover {
+		    color: $global-link-hover-color;
+		  }
+		}
+	}
+	.topnav1{
+		margin: 1.5rem 0 1rem;
+	}
+	.smconbox{
+		.smcontit{
+			font-size: 15px;
+			margin: 0;
+			margin: 1.5rem 0 1rem;
+			.morebtn{
+				float: right;
+			}
+		}
+	}
+	.conulbox{
+		display: flex;
+		display: -webkit-flex;
+		flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+	}
+	.zdy_navslistli{
+		width: 25%;
+		padding-right: 10px;
+		margin-bottom: 10px;
+		box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		
+		.summary{
+			border-radius: $border-radius-size15;
+		}
+		.summary:hover {
+		    transform: translateY(-6px);
+		    -webkit-transform: translateY(-6px);
+		    -moz-transform: translateY(-6px);
+		    box-shadow: 0 26px 40px -24px rgba(0,36,100,.3);
+		    -webkit-box-shadow: 0 26px 40px -24px rgba(0,36,100,.3);
+		    -moz-box-shadow: 0 26px 40px -24px rgba(0,36,100,.3)
+		}
+		.summary a{
+			border-radius: $border-radius-size15;
+			padding: 12px;
+			display: flex;
+			display: -webkit-flex;
+			box-shadow:$zdy-bordershow;
+			background: $zdy-bg1;
+			[theme=dark] & {
+			  box-shadow: $zdy-bordershow-dark;
+			  background: $zdy-bg-dark;
+			}
+			[theme=black] & {
+			  box-shadow: $zdy-bordershow-black;
+			  background: $zdy-bg-black;
+			}
+		}
+		.summary .featured-image-preview{
+			width: 42px;
+			height: 42px;
+			border-radius: 7px;
+			overflow: hidden;
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.rightbox{
+			flex: 1;
+			-webkit-flex: 1;
+			padding-left: 5px;
+			.single-title{
+				font-size: 14px;
+				font-weight: bold;
+				line-height: 22px;
+				margin: 0;
+				overflow: hidden;
+				@include box(vertical);
+				-webkit-line-clamp: 1;
+			}
+			.description{
+				font-size: 12px;
+				font-weight: 400;
+				color: #757A83;
+				line-height: 22px;
+				overflow: hidden;
+				@include box(vertical);
+				-webkit-line-clamp: 1;
+				margin: 0;
+			}
+		}
+	}
+}
+#alllist_con{
+	padding-bottom: 20px;
+}
+.gameslist_conbox,
+.tagslist_conbox{
+	.pagelistcon{
+			  box-shadow: $zdy-bordershow;
+			  background: $zdy-bg1;
+			  [theme=dark] & {
+			    box-shadow: $zdy-bordershow-dark;
+			    background: $zdy-bg-dark;
+			  }
+			  [theme=black] & {
+			    box-shadow: $zdy-bordershow-black;
+			    background: $zdy-bg-black;
+			  }
+			  margin-bottom: 20px;
+			  border-radius: 20px;
+			  flex: 1;
+			  -webkit-flex: 1;
+			  margin-top: 24px;
+			  padding: 0 40px;
+			  margin-left: 10px;
+	}
+	.title{
+		padding-top: 40px;
+		height: 30px;
+		line-height: 30px;
+		font-size: 28px;
+		font-weight: bold;
+		margin: 0;
+	}
+	.msgtext{
+		height: 24px;
+		line-height: 24px;
+		font-size: 16px;
+		font-weight: 400;
+		padding-bottom: 20px;
+	}
+	.liconbox{
+		padding-bottom: 36px;
+		.smtit{
+			font-size: 18px;
+			font-weight: bold;
+			margin: 0;
+			padding: 10px 0;
+			border-bottom: 1px solid $gangbg-dark;
+			[theme=auto] & {
+				border-bottom: 1px solid $gangbg;
+			}
+			[theme=light] & {
+				border-bottom: 1px solid $gangbg;
+			}
+			svg{
+				font-size: 21px;
+			}
+		}
+	}
+	.smliconbox{
+		position: relative;
+	}
+	// .zdy_gameslistli::after{
+	// 	content: "";
+	// 	position: absolute;
+	// 	width: 100%;
+	// 	height: 1px;
+	// 	background: $gangbg;
+	// 	bottom: 0;
+	// 	left: 0;
+	// }
+	
+	.zdy_gameslistli{
+		float: left;
+		width: 50%;
+		padding: 20px 0;
+		padding-bottom: 21px;
+		border-bottom: 1px solid $gangbg-dark;
+		[theme=auto] & {
+			border-bottom: 1px solid $gangbg;
+		}
+		[theme=light] & {
+			border-bottom: 1px solid $gangbg;
+		}
+		.featured-image-preview{
+			width: 96px;
+			height: 96px;
+			border-radius: 15px;
+			overflow: hidden;
+			a{
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.summary{
+			display: flex;
+			display: -webkit-flex;
+		}
+		.zdy_rightbox{
+			padding-left: 9px;
+			overflow: hidden;
+			flex: 1;
+			-webkit-flex: 1;
+			.single-title{
+				margin: 0;
+				font-size: 15px;
+				font-weight: bold;
+				color: $header-font-color;
+				line-height: 24px;
+				overflow: hidden;
+				@include box(vertical);
+				-webkit-line-clamp: 1;
+				padding-top: 4px;
+				a{
+					[theme=auto] & {
+					  color: $zdy_color1
+					}
+					[theme=light] & {
+					  color: $zdy_color1
+					}
+				}
+				
+			}
+			.content{
+				margin-bottom: 6px;
+				font-size: 13px;
+				font-weight: 400;
+				color: $zdy_color2;
+				line-height: 18px;
+				overflow: hidden;
+				height: 36px;
+				@include box(vertical);
+				-webkit-line-clamp: 2;
+				[theme=dark] & {
+				  color: $global-font-secondary-color-dark;
+				}
+				[theme=black] & {
+				  color: $global-font-secondary-color-black;
+				}
+				p{
+					margin: 0;
+				}
+			}
+			[theme=auto] & {
+			  .gtypesbox,.gtypesbox a{
+			  	color: $zdy_color6;
+			  }
+			  .gtypesbox a:hover {
+			    color: $global-link-hover-color;
+			  }
+			}
+			[theme=light] & {
+			  .gtypesbox,.gtypesbox a{
+			  	color: $zdy_color6;
+			  }
+			  .gtypesbox a:hover {
+			    color: $global-link-hover-color;
+			  }
+			}
+			.gtypesbox{
+				display: block;
+				line-height: 18px;
+				height: 18px;
+				overflow: hidden;
+				@include box(vertical);
+				-webkit-line-clamp: 1;
+			}
+			.gtypesbox a{
+				font-size: 13px;
+			}
+		}
+	}
+	.zdy_gameslistli:last-child{
+		border-bottom-color:rgba(0,0,0,0) ;
+	}
+}
+.gameslist_conbox,
+.gamesingle_w{
+	.sidebarbox_mb .tit{
+		[theme=auto] & {
+			color: $global-font-color;
+		}
+		[theme=light] & {
+			color: $global-font-color;
+		}
+		color: $global-background-color;
+	}
+}
+.tagslist_conbox{
+	.zdy_navslistli,
+	.zdy_newslistli,
+	.zdy_communitylistli{
+		.summary:hover{
+			transform: none;
+			-webkit-transform: none;
+			-moz-transform: none;
+			box-shadow: none;
+			-webkit-box-shadow: none;
+			-moz-box-shadow: none;
+		}
+		width: 100%;
+		float: none;
+		padding: 20px 0;
+		padding-bottom: 21px;
+		border-bottom: 1px solid #DFE4E9;
+		margin: 0;
+		
+		.summary{
+			background: none;
+			border-radius: 0;
+			box-shadow: none;
+			display: flex;
+			display: -webkit-flex;
+			.featured-image-preview{
+				width: 96px;
+				height: 96px;
+				border-radius: 15px;
+				overflow: hidden;
+				a{
+					width: 100%;
+					height: 100%;
+					display: block;
+				}
+				img{
+					width: 100%;
+					height: 100%;
+					object-fit: cover;
+				}
+			}
+			a{
+				padding: 0;
+				box-shadow:none;
+			}
+		}
+		.zdy_rightbox{
+			padding-left: 9px;
+			overflow: hidden;
+			flex: 1;
+			-webkit-flex: 1;
+			.single-title{
+				height: 24px;
+				margin: 0;
+				font-size: 15px;
+				font-weight: bold;
+				color: $header-font-color;
+				line-height: 24px;
+				overflow: hidden;
+				@include box(vertical);
+				-webkit-line-clamp: 1;
+				padding-top: 4px;
+				a{
+					[theme=auto] & {
+					  color: $zdy_color1
+					}
+					[theme=light] & {
+					  color: $zdy_color1
+					}
+				}
+				
+			}
+			.content{
+				padding-top: 6px;
+				font-size: 13px;
+				font-weight: 400;
+				color: $zdy_color2;
+				line-height: 18px;
+				overflow: hidden;
+				height: 36px;
+				@include box(vertical);
+				-webkit-line-clamp: 2;
+				[theme=dark] & {
+				  color: $global-font-secondary-color-dark;
+				}
+				[theme=black] & {
+				  color: $global-font-secondary-color-black;
+				}
+			}
+			[theme=auto] & {
+			  .gtypesbox,.gtypesbox a{
+			  	color: $zdy_color6;
+			  }
+			  .gtypesbox a:hover {
+			    color: $global-link-hover-color;
+			  }
+			}
+			[theme=light] & {
+			  .gtypesbox,.gtypesbox a{
+			  	color: $zdy_color6;
+			  }
+			  .gtypesbox a:hover {
+			    color: $global-link-hover-color;
+			  }
+			}
+			.gtypesbox{
+				display: block;
+				line-height: 18px;
+				height: 18px;
+				overflow: hidden;
+				@include box(vertical);
+				-webkit-line-clamp: 1;
+			}
+			.gtypesbox a{
+				font-size: 13px;
+			}
+			.tipbox{
+				padding: 0;
+			}
+		}
+	}
+	.zdy_gameslistli{
+		width: 100%;
+		float: none;
+		.zdy_rightbox .single-title{
+			height: auto;
+		}
+	}
+	// .s_topnav{
+	// 	display:flex;
+	// 	display: -webkit-flex;
+	// }
+	// .title{
+	// 	flex: 1;
+	// 	-webkit-flex: 1;
+	// }
+	// ul{
+	// 	display:flex;
+	// 	display: -webkit-flex;
+	// 	padding-top: 32px;
+	// 	li{
+	// 		padding: 0 8px;
+	// 	}
+	// 	li.active a{
+	// 		color: $zdy_color1;
+	// 	}
+	// }
+	// .tags_c{
+	// 	// display: none;
+	// }
+	// .tags_cac{
+	// 	display: block;
+	// }
+	
+}

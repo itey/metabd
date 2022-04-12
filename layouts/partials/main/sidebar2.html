@@ -1,0 +1,62 @@
+{{ $sidebartype := .Scratch.Get "sidebartype" }}
+<div class="sidebarbox_mb sidebarbox_mb2" >
+	<ul>
+	{{ $currentPage := . -}}
+	{{ $section := $currentPage.Section -}}
+	{{ range $elem_index, $elem_val :=(index .Site.Menus $section) -}}
+		{{ $active := in $currentPage.RelPermalink .Title }}
+		<li itype="{{ .Name }}">
+			<p class="tit"><span><svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-jiantouxia-copy"></use>
+					</svg></span>{{ .Name }}</p>
+			<div class="conlist">
+			{{ if .HasChildren -}}
+			{{ range .Children -}}
+				{{ $active := in $currentPage.RelPermalink .URL }}
+				<a class="{{ if $active }}active{{ end }}" href="{{ .URL | relURL }}"><span>{{ .Name }}</span></a>
+			{{end}}
+			</div>
+			{{end}}
+		</li>
+		
+	{{end}}
+</div>
+
+<script type="text/javascript">
+	var isMobile = window.matchMedia && window.matchMedia('only screen and (max-width: 680px)').matches;
+	$(window).resize(function(){
+		isMobile = window.matchMedia && window.matchMedia('only screen and (max-width: 680px)').matches
+		if(!isMobile)$(".sidebarbox_mb").show()
+	})
+	$(".sidebarbox_mb2 a").each(function(){
+		if($(this).hasClass("active")){
+			$(this).parents("li").addClass("active")
+		}
+	})
+	// breadcrumb-item
+	$(".doks-sidebar-toggle").on("click",function(ev){
+		ev.stopPropagation()
+		if($(this).hasClass("doks-collapse")){
+			$(this).removeClass("doks-collapse")
+			if(isMobile)$(".sidebarbox_mb").hide();
+		}else{
+			$(this).addClass("doks-collapse")
+			$(".sidebarbox_mb").show();
+			$(".sidebarbox_mb").css("max-height","400px")
+		}
+	})
+	$(".sidebarbox_mb").on("click",function(ev){
+		ev.stopPropagation()
+	})
+	$(".sidebarbox_mb2 .tit").on("click",function(){
+		if(!$(this).parents("li").hasClass("active")){
+			$(this).parents("li").addClass("active")
+		}else{
+			$(this).parents("li").removeClass("active")
+		}
+	})
+	$("body").on("click",function(){
+		$(".doks-sidebar-toggle").removeClass("doks-collapse")
+		if(isMobile)$(".sidebarbox_mb").hide()
+	})
+</script>

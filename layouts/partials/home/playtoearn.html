@@ -1,0 +1,21 @@
+<div class="playtoearnbox">
+	<section id="gtypes">
+		{{ $.Scratch.Set "games" .Site.Taxonomies.games.ByCount}}
+		 <div class="gamesbox">
+		 {{ range $key, $value := $.Scratch.Get "games" }}
+			  <a href="{{ printf "%s/%s" "games" $value.Name | urlize | relLangURL }}/">{{ $value.Name }}</a>
+		 {{ end }}
+		 </div>
+	</section>
+	<div class="indexgameslibox clear">
+		{{- $games := .Site.Params.home.games -}}
+		{{- $pages := where .Site.RegularPages "Type" "games" -}}
+		{{- range $elem_index, $elem_val :=$pages -}}
+			{{ if lt $elem_index $games.Paginate}}
+			<div class="indexgamesli">
+				{{- .Render "indexgamesli" -}}
+			</div>
+			{{- end -}}
+		{{- end -}}
+	</div>
+</div>

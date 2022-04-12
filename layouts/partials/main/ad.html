@@ -1,0 +1,127 @@
+<div class="zdy_pageadbox">
+{{- $pages := where .Site.RegularPages "Type" "ads" -}}
+{{- range $elem_index, $elem_val :=$pages -}}
+
+{{- $params := .Params | merge .Site.Params.page -}}
+
+	{{- /* Featured image */ -}}
+	{{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
+	{{- $height := "auto" -}}
+	{{- $width := "auto" -}}
+	{{- with .Resources.GetMatch (printf "%s" ($image)) -}}
+	    {{- $image = .RelPermalink -}}
+	    {{- $height = .Height -}}
+	    {{- $width = .Width -}}
+	{{- end -}}
+	{{- with .Resources.GetMatch "featured-image" -}}
+	    {{- $image = .RelPermalink -}}
+	    {{- $height = .Height -}}
+	    {{- $width = .Width -}}
+	{{- end -}}
+	{{- with .Resources.GetMatch "featured-image-preview" -}}
+	    {{- $image = .RelPermalink -}}
+	    {{- $height = .Height -}}
+	    {{- $width = .Width -}}
+	{{- end -}}
+	{{ if (and (eq $params.adtype "1") (or (eq $params.adshow "all") (eq $params.adshow "other"))) }}
+		<a class="zdy_ad1" target="_blank" href="{{ $params.link }}">
+			<span class="adico">{{ T `ad` }}</span>
+			<img class="limg" isrc="{{.RelPermalink}}{{$params.featuredImage | relURL }}">
+			<img class="simg" isrc="{{.RelPermalink}}{{$params.featuredImage1 | relURL }}">
+		</a>
+	{{- end -}}
+	{{ if (and (eq $params.adtype "2") (or (eq $params.adshow "all") (eq $params.adshow "other"))) }}
+		<span adico="{{ T `ad` }}" class="zdy_ad2" ihref="{{ $params.link }}" lsrc="{{.RelPermalink}}{{$params.featuredImage | relURL }}" rsrc="{{.RelPermalink}}{{$params.featuredImage1 | relURL }}"></span>
+	{{- end -}}
+{{- end -}}
+</div>
+<script type="text/javascript">
+	var Addata = {
+		adbl1:1206/130,//1206/130
+		adbl1_s:750/130,//750/130
+		showad1index:null,
+		adbl2:498/1277,//498/1277
+		showad2index:null,
+		init:function(){
+			var _this = this;
+			
+			if($(".zdy_pageadbox .zdy_ad1").length>0){
+				_this.showad1index = _this.randomNum(0,$(".zdy_pageadbox .zdy_ad1").length-1);
+				$(".zdy_pageadbox .zdy_ad1").hide();
+				$(".zdy_pageadbox .zdy_ad1").eq(_this.showad1index).show();
+				$(".zdy_pageadbox").show();
+				
+				_this.ad1_resizefn();
+			}
+			if($(".zdy_pageadbox .zdy_ad2").length>0){
+				_this.showad2index = _this.randomNum(0,$(".zdy_pageadbox .zdy_ad2").length-1);
+				var td = $(".zdy_pageadbox .zdy_ad2").eq(_this.showad2index);
+				var addoms = ['<div class="zdy_pageleftad2 zdy_pageleftad2_l"><a target="_blank" href="',
+						td.attr("ihref"),
+						'">',
+						'<span class="adico">',
+						td.attr("adico"),
+						'</span>',
+						'<img src="',
+						td.attr("lsrc"),
+						'">',
+					'</a><span class="closegg">x</span></div>','<div class="zdy_pageleftad2 zdy_pageleftad2_r"><a target="_blank" href="',
+						td.attr("ihref"),
+						'">',
+						'<span class="adico">',
+						td.attr("adico"),
+						'</span>',
+						'<img src="',
+						td.attr("rsrc"),
+						'">',
+					'</a><span class="closegg">x</span></div>'].join("")
+				$("body").append(addoms);
+				$(".zdy_pageleftad2 .closegg").on("click",function(){
+					$(this).parents(".zdy_pageleftad2").remove()
+				})
+				_this.ad2_resizefn();
+				
+			}
+			$(window).on("resize",function(){
+				if($(".zdy_pageadbox .zdy_ad1").length>0){
+					_this.ad1_resizefn()
+				}
+				if($(".zdy_pageadbox .zdy_ad2").length>0){
+					_this.ad2_resizefn();
+				}
+			});
+		},
+		ad1_resizefn:function(){
+			var _this = this;
+			var w = $(window).outerWidth();
+			$(".zdy_pageadbox img").hide()
+			if(w<=680){
+				var d = $(".zdy_pageadbox .zdy_ad1").eq(_this.showad1index);
+				$(".zdy_pageadbox").css("height",$(".zdy_pageadbox").outerWidth()/_this.adbl1_s)
+				d.find(".simg").attr("src",d.find(".simg").attr("isrc")).show()
+			}else{
+				var d = $(".zdy_pageadbox .zdy_ad1").eq(_this.showad1index);
+				$(".zdy_pageadbox").css("height",$(".zdy_pageadbox").outerWidth()/_this.adbl1)
+				d.find(".limg").attr("src",d.find(".limg").attr("isrc")).show()
+			}
+		},
+		ad2_resizefn:function(){
+			var w = ($("body").outerWidth()-$(".page").outerWidth())/2-10
+			$(".zdy_pageleftad2").css("width",w)
+		},
+		randomNum:function(minNum,maxNum){
+			switch(arguments.length){
+				case 1: 
+					return parseInt(Math.random()*minNum+1,10); 
+				break; 
+				case 2: 
+					return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
+				break; 
+					default: 
+						return 0; 
+					break; 
+			} 
+		}
+	}
+	Addata.init();
+</script>

@@ -1,0 +1,85 @@
+# Meta Data for SEO
+
+## Homepage
+title = "MetaNav"
+titleSeparator = "-"
+titleAddition = "Modern Documentation Theme"
+description = "Doks is a Hugo theme for building secure, fast, and SEO-ready documentation websites, which you can easily update and customize."
+
+## Open Graph
+images = ["doks.png"]
+ogLocale = "en_US"
+domainTLD = "getdoks.org"
+titleHome = "Doks Theme"
+
+## Twitter Cards
+twitterSite = "@getdoks"
+twitterCreator = "@henkverlinde"
+
+## JSON-LD
+# schemaType = "Person"
+schemaType = "Organization"
+schemaName = "Doks"
+schemaAuthor = "Henk Verlinde"
+schemaAuthorTwitter = "https://twitter.com/henkverlinde"
+schemaAuthorLinkedIn = "https://www.linkedin.com/in/henkverlinde/"
+schemaAuthorGitHub = "https://github.com/h-enk"
+schemaLocale = "en-US"
+schemaLogo = "logo-doks.png"
+schemaLogoWidth = 512
+schemaLogoHeight = 512
+schemaImage = "doks.png"
+schemaImageWidth = 1280
+schemaImageHeight = 640
+schemaTwitter = "https://twitter.com/getdoks"
+schemaLinkedIn = ""
+schemaGitHub = "https://github.com/h-enk/doks"
+schemaSection = "blog"
+
+## Sitelinks Search Box
+siteLinksSearchBox = false
+
+## Chrome Browser
+themeColor = "#fff"
+
+# Images
+quality = 85
+bgColor = "#fff"
+landscapePhotoWidths = [900, 800, 700, 600, 500]
+portraitPhotoWidths = [800, 700, 600, 500]
+lqipWidth = "20x"
+smallLimit = "600"
+
+# Footer
+footer = "Powered by <a class=\"text-muted\" href=\"https://www.netlify.com/\">Netlify</a>, <a class=\"text-muted\" href=\"https://gohugo.io/\">Hugo</a>, and <a class=\"text-muted\" href=\"https://getdoks.org/\">Doks</a>"
+
+# Feed
+copyRight = "Copyright (c) 2020-2022 Henk Verlinde"
+
+
+# Alert
+alert = false
+alertDismissable = true
+# alertText = "Help Doks grow by supporting us on Open Collective. <a class=\"alert-link stretched-link\" href=\"https://opencollective.com/doks\" target=\"_blank\" rel=\"noopener\">Become a backer!</a>"
+# alertText = "Better UX navigation, multilingual and i18n support, and more. <a class=\"alert-link stretched-link\" href=\"/blog/doks-v0.3/\">Check out what's new!</a>"
+alertText = "Multi level section menu — <strong>automatically</strong> generated, and more. <a class=\"alert-link stretched-link\" href=\"/blog/doks-v0.4/\">Check out what's new!</a>"
+# alertText = "What Doks future features are important to you? <a class=\"alert-link stretched-link\" href=\"https://docs.google.com/forms/d/e/1FAIpQLSe0DItAFv2cNSC0S_L6DQBw9ofB0ogYvZqeoWHHRX-Aal-5zQ/viewform?usp=sf_link\" target=\"_blank\" rel=\"noopener\">Take the 2021 Doks Survey</a>"
+
+# Edit Page
+docsRepo = "https://github.com/h-enk/getdoks.org"
+editPage = true
+
+[options]
+  lazySizes = true
+  clipBoard = true
+  instantPage = true
+  darkMode = true
+  bootStrapJs = true
+  highLight = true
+  multilingualMode = false # Not yet functional
+  docsVersioning = false # Not yet functional
+
+[menu]
+  [menu.section]
+    auto = false
+    collapsibleSidebar = true

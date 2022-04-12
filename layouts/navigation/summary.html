@@ -1,0 +1,41 @@
+{{- $params := .Params | merge .Site.Params.page -}}
+
+<article class="single summary" itemscope itemtype="http://schema.org/Article">
+	
+    {{- /* Featured image */ -}}
+    {{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
+    {{- $height := "auto" -}}
+    {{- $width := "auto" -}}
+    {{- with .Resources.GetMatch (printf "%s" ($image)) -}}
+        {{- $image = .RelPermalink -}}
+        {{- $height = .Height -}}
+        {{- $width = .Width -}}
+    {{- end -}}
+    {{- with .Resources.GetMatch "featured-image" -}}
+        {{- $image = .RelPermalink -}}
+        {{- $height = .Height -}}
+        {{- $width = .Width -}}
+    {{- end -}}
+    {{- with .Resources.GetMatch "featured-image-preview" -}}
+        {{- $image = .RelPermalink -}}
+        {{- $height = .Height -}}
+        {{- $width = .Width -}}
+    {{- end -}}
+        {{- with $image -}}
+		<a href="{{ $.RelPermalink }}" aria-label={{ $.Title }} title={{ $.Title }}>
+				<div class="featured-image-preview">
+					
+						{{- dict "Src" . "Title" $.Description "Resources" $.Resources "Height" $height "Width" $width | partial "plugin/image.html" -}}
+				   
+				</div>
+			{{- end -}}
+			{{- /* Title */ -}}
+			<div class="rightbox">
+				<h4 class="single-title" itemprop="name headline">
+					{{ .Title }}
+				</h4>
+				<p class="description">{{ .Description }}</p>
+			</div>
+		</a>
+    
+</article>

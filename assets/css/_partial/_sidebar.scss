@@ -1,0 +1,140 @@
+.sidebarbox_mb{
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+	
+	padding: 20px 0;
+	width: 230px;
+	.conlist{
+		display: none;
+	}
+	.active .conlist{
+		display: block;
+	}
+	.tit span{
+		@include transform(rotate(-90deg));
+	}
+	.active .tit span{
+		@include transform(rotate(0deg));
+	}
+	.ntit{
+		margin-bottom: 10px;
+		line-height: 28px;
+		font-size: 17px;
+		font-weight: bold;
+	}
+	ul,li,p{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		line-height: 28px;
+		
+	}
+	.tit span{
+		display: inline-block;
+		width: 20px;
+	}
+	
+	.tit,a{
+		line-height: 33px;
+		cursor: pointer;
+		color: $zdy_color5;
+		[theme=dark] & {
+			color: $global-link-color-dark;
+		}
+		[theme=black] & {
+			color: $global-link-color-dark;
+		}
+		
+	}
+	.tit{
+		font-size: 14px;
+		font-weight: bold;
+		// [theme=dark] & {
+		// 	color: $table-background-color;
+		// }
+		// [theme=black] & {
+		// 	color: $table-background-color;
+		// }
+	}
+	.tit:hover{
+		[theme=auto] & {
+			color: $global-font-color;
+		}
+		[theme=light] & {
+			color: $global-font-color;
+		}
+	}
+	a{
+		padding-left: 20px;
+		font-size: 14px;
+		display: block;
+	}
+	a.active,a:hover{
+		color: $global-link-hover-color;
+		[theme=dark] & {
+			color: $global-link-hover-color-dark;
+		}
+		[theme=black] & {
+			color: $global-link-hover-color-black;
+		}
+		
+		
+	}
+}
+.sidebarbox_mb {
+	order: 0;
+}
+
+@supports ((position:-webkit-sticky) or (position:sticky)) {
+	.sidebarbox_mb {
+		position: -webkit-sticky;
+		position: sticky;
+		top: 3.625rem;
+		z-index: 1;
+		height: calc(100vh - 16rem);
+	}
+}
+// .sidebarbox_mb {
+//   flex: 0 1 320px;
+// }
+.sidebarbox_mb1{
+	position: inherit;
+	height: auto;
+	width: 210px;
+	padding-right: 20px;
+	li{
+		padding-bottom: 20px;
+	}
+	.tit{
+		font-size: 16px;
+	}
+	a{
+		padding-left: 0;
+		display: flex;
+		display: -webkit-flex;
+		align-items: center;
+		-webkit-align-items: center;
+		span:nth-of-type(1){
+			flex: 1;
+			-webkit-flex: 1;
+		}
+		span:nth-of-type(2){
+			padding: 0 8px;
+			height: 20px;
+			background: $zdy_color9;
+			color: $zdy_color5;
+			[theme=dark] & {
+				background: $zdy-bg-dark;
+			}
+			[theme=black] & {
+				background: $zdy-bg-dark;
+			}
+			
+			border-radius: 5px;
+			line-height: 20px;
+			font-size: 12px;
+			font-weight: 400;
+			
+		}
+	}
+}

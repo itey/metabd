@@ -1,0 +1,256 @@
+// ==============================
+// Custom style
+// 自定义样式
+// ==============================
+// 广告
+.zdy_homeadbox{
+	width: 100%;
+	margin-top: 23px;
+	border-radius: $border-radius-size5;
+	overflow: hidden;
+	position: relative;
+	a{
+	  display: block;
+	  width: 100%;
+	}
+	img{
+	  width: 100%;
+	  object-fit:fill
+	}
+	.adico{
+		position: absolute;
+		width: 30px;
+		background: #fff;
+		border-radius: 3px;
+		height: 22px;
+		line-height: 22px;
+		font-size: 12px;
+		text-align: center;
+		opacity: .5;
+		right: 5px;
+		top: 5px;
+		transform: scale(.9);
+		-webkit-transform: scale(.9);
+	}
+}
+.zdy_pageadbox{
+	position: relative;
+	width: 100%;
+	margin-top: 23px;
+	border-radius: $border-radius-size5;
+	overflow: hidden;
+	display: none;
+	a{
+		display: block;
+	}
+	img{
+		width: 100%;
+		display: none;
+	}
+	.adico{
+	  position: absolute;
+	  width: 30px;
+	  background: #fff;
+	  border-radius: 3px;
+	  height: 22px;
+	  line-height: 22px;
+	  font-size: 12px;
+	  text-align: center;
+	  opacity: .5;
+	  right: 5px;
+	  top: 5px;
+	  transform: scale(.9);
+	  -webkit-transform: scale(.9);
+	}
+}
+.zdy_pageleftad2{
+	position: fixed;
+	z-index: 150;
+	left: 0;
+	top: 0;
+	img{
+		width: 100%;
+	}
+	.adico{
+	  position: absolute;
+	  width: 30px;
+	  background: #fff;
+	  border-radius: 3px;
+	  height: 18px;
+	  line-height: 18px;
+	  font-size: 12px;
+	  text-align: center;
+	  opacity: .5;
+	  right: 5px;
+	  top: 5px;
+	  transform: scale(.9);
+	  -webkit-transform: scale(.9);
+	}
+	.closegg{
+		position: absolute;
+		width: 18px;
+		background: #fff;
+		border-radius: 3px;
+		height: 18px;
+		line-height: 18px;
+		font-size: 14px;
+		text-align: center;
+		opacity: .5;
+		right: 35px;
+		top: 5px;
+		transform: scale(.9);
+		-webkit-transform: scale(.9);
+		cursor: pointer;
+	}
+}
+.zdy_pageleftad2_r{
+	right: 0;
+	left: auto;
+}
+.zdy_pagerightad3{
+	width: 100%;
+	height: 450px;
+	border-radius: $border-radius-size5;
+	overflow: hidden;
+	position: relative;
+	margin-top: 20px;
+	img,a{
+		width: 100%;
+		height: 100%;
+	}
+	.adico{
+	  position: absolute;
+	  width: 30px;
+	  background: #fff;
+	  border-radius: 3px;
+	  height: 18px;
+	  line-height: 18px;
+	  font-size: 12px;
+	  text-align: center;
+	  opacity: .5;
+	  right: 5px;
+	  top: 5px;
+	  transform: scale(.9);
+	  -webkit-transform: scale(.9);
+	}
+	.closegg{
+		position: absolute;
+		width: 18px;
+		background: #fff;
+		border-radius: 3px;
+		height: 18px;
+		line-height: 18px;
+		font-size: 14px;
+		text-align: center;
+		opacity: .5;
+		right: 35px;
+		top: 5px;
+		transform: scale(.9);
+		-webkit-transform: scale(.9);
+		cursor: pointer;
+	}
+}
+.zdy_pageadbox4{
+	width: 100%;
+	height: 130px;
+	border-radius: $border-radius-size5;
+	overflow: hidden;
+	margin: 20px 0;
+	position: relative;
+	a{
+		display: block;
+		width: 100%;
+		height: 100%;
+		img{
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	.closegg{
+		position: absolute;
+		width: 18px;
+		background: #fff;
+		border-radius: 3px;
+		height: 18px;
+		line-height: 18px;
+		font-size: 14px;
+		text-align: center;
+		opacity: .5;
+		right: 35px;
+		top: 5px;
+		transform: scale(.9);
+		-webkit-transform: scale(.9);
+		cursor: pointer;
+	}
+	.adico{
+		position: absolute;
+		width: 30px;
+		background: #fff;
+		border-radius: 3px;
+		height: 18px;
+		line-height: 18px;
+		font-size: 12px;
+		text-align: center;
+		opacity: .5;
+		right: 5px;
+		top: 5px;
+		transform: scale(0.9);
+		-webkit-transform: scale(0.9);
+	}
+}
+.zdy_pageleftad2_l{
+	.adico{
+		right: auto;
+		left: 5px;
+	}
+	
+	.closegg{
+		right: auto;
+		left: 35px;
+	}
+}
+
+.gt-container .gt-header-textarea{
+	[theme=dark] & {
+		background-color:$zdy-bg-dark;
+		// color: $global-link-color-dark;
+	}
+	[theme=black] & {
+		background-color:$zdy-bg-dark;
+		// color: $global-link-color-dark;
+	}
+}
+.gt-container .gt-header-textarea:hover {
+  [theme=dark] & {
+  	background-color:$zdy-bg-dark
+  }
+  [theme=black] & {
+  	background-color:$zdy-bg-dark
+  }
+}
+.gt-container {
+	 [theme=dark] & {
+	 	@include placeholder($global-link-color-dark)
+	 }
+	 [theme=black] & {
+	 	@include placeholder($global-link-color-dark)
+	 }
+}
+.gt-container .gt-user-inner{
+	[theme=dark] & {
+		color: $global-link-color-dark;
+	}
+	[theme=black] & {
+		color: $global-link-color-dark;
+	}
+}
+.gt-container .gt-btn-preview{
+	[theme=dark] & {
+		background-color: rgba(0,0,0,0);
+	}
+	[theme=black] & {
+		background-color: rgba(0,0,0,0);
+	}
+	
+}

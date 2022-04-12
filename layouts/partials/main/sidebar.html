@@ -1,0 +1,111 @@
+{{ $sidebartype := .Scratch.Get "sidebartype" }}
+<div class="sidebarbox_mb" >
+	<p class="ntit">{{T $sidebartype}}</p>
+	<ul>
+	{{ .Scratch.Set "thistypes" "p" }}
+	{{ .Scratch.Add "thistypes" $sidebartype }}
+	{{ $thistypes := .Scratch.Get "thistypes" }}
+	
+	{{- if eq $sidebartype "News" -}}
+		{{- range $elem_index, $elem_val :=where .Site.RegularPages "Type" $thistypes -}}
+			<li>
+				<p class="tit"><span>
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-jiantouxia-copy"></use>
+					</svg>
+				</span><!-- <i class="fas fa-chevron-right fa-fw"></i> -->{{.Title}}</p>
+				<div class="conlist">
+					<p>
+						{{ $.Scratch.Set "thisnav" .Params.news }}
+						{{ range $key, $value := $.Scratch.Get "thisnav" }}
+							<a type="{{$value}}" href="{{ printf "%s/%s" "news" $value | urlize | relLangURL }}/">{{$value}}</a>
+						{{ end }}
+					</p>
+				</div>
+			</li>
+		{{- end -}}
+	{{- end -}}
+	{{- if eq $sidebartype "Navigation" -}}
+		{{- range $elem_index, $elem_val :=where .Site.RegularPages "Type" $thistypes -}}
+			<li>
+				<p class="tit"><span>
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-jiantouxia-copy"></use>
+					</svg>
+				</span>{{.Title}}</p>
+				<div class="conlist">
+					<p>
+						{{ $.Scratch.Set "thisnav" .Params.navigation }}
+						{{ range $key, $value := $.Scratch.Get "thisnav" }}
+							<a type="{{$value}}" href="{{ printf "%s/%s" "navigation" $value | urlize | relLangURL }}/">{{$value}}</a>
+						{{ end }}
+					</p>
+				</div>
+			</li>
+		{{- end -}}
+	{{- end -}}
+	{{- if eq $sidebartype "Games" -}}
+		{{- range $elem_index, $elem_val :=where .Site.RegularPages "Type" $thistypes -}}
+			<li>
+				<p class="tit"><span>
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-wenzhang"></use>
+					</svg>
+				</span>{{.Title}}</p>
+				<div class="conlist">
+					<p>
+						{{ $.Scratch.Set "thisnav" .Params.games }}
+						{{ range $key, $value := $.Scratch.Get "thisnav" }}
+							<a type="{{$value}}" href="{{ printf "%s/%s" "games" $value | urlize | relLangURL }}/">{{$value}}</a>
+						{{ end }}
+					</p>
+				</div>
+			</li>
+		{{- end -}}
+	{{- end -}}
+	</ul>
+</div>
+<script type="text/javascript">
+	var thistitle = {{ .Title }};
+	var thistype = {{$sidebartype}};
+	var isMobile = window.matchMedia && window.matchMedia('only screen and (max-width: 680px)').matches;
+	$(window).resize(function(){
+		isMobile = window.matchMedia && window.matchMedia('only screen and (max-width: 680px)').matches
+		if(!isMobile)$(".sidebarbox_mb").show()
+	})
+	if(thistype != thistitle){
+		$(".sidebarbox_mb .conlist a").each(function(){
+			if($(this).attr("type")==thistitle){
+				$(this).addClass("active").parents("li").addClass("active");
+				thistitle = "000"
+			}
+		})
+	}
+	// breadcrumb-item
+	$(".doks-sidebar-toggle").on("click",function(ev){
+		ev.stopPropagation()
+		if($(this).hasClass("doks-collapse")){
+			$(this).removeClass("doks-collapse")
+			if(isMobile)$(".sidebarbox_mb").hide();
+		}else{
+			$(this).addClass("doks-collapse")
+			$(".sidebarbox_mb").show();
+			$(".sidebarbox_mb").css("max-height","400px")
+		}
+	})
+	$(".sidebarbox_mb").on("click",function(ev){
+		ev.stopPropagation()
+	})
+	$(".sidebarbox_mb .tit").on("click",function(){
+		if(!$(this).parents("li").hasClass("active")){
+			$(".sidebarbox_mb li").removeClass("active")
+			$(this).parents("li").addClass("active")
+		}else{
+			 $(".sidebarbox_mb li").removeClass("active")
+		}
+	})
+	$("body").on("click",function(){
+		$(".doks-sidebar-toggle").removeClass("doks-collapse")
+		if(isMobile)$(".sidebarbox_mb").hide()
+	})
+</script>

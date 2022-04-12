@@ -1,0 +1,79 @@
+
+<div id="homenavigation">
+	<div class="box2 clear">
+		<ul>
+			{{ range $elem_index, $elem_val :=where .Site.RegularPages "Type" "pNavigation" }}
+				{{ if lt $elem_index 6}}
+				<li>
+					<h4><span>{{safeHTML .Params.ico}}</span>{{.Title}}</h4>
+					<div class="slist" >
+						{{ $.Scratch.Set "navigation" .Params.navigation }}
+						{{ range $key, $value := $.Scratch.Get "navigation" }}
+							<a href="{{ printf "%s/%s" "navigation" $value | urlize | relLangURL }}/">{{$value}}</a>
+						{{ end }}
+					</div>
+				</li>
+				{{end}}
+			{{end}}
+		</ul>
+		<ul>
+			{{ range $elem_index, $elem_val :=where .Site.RegularPages "Type" "pNavigation" }}
+				{{ if ge $elem_index 6}}
+				<li>
+					<!-- <h4>{{safeHTML .Params.ico}}{{.Title}}</h4> -->
+					<h4><span>{{safeHTML .Params.ico}}</span>{{.Title}}</h4>
+					<div class="slist" >
+						{{ $.Scratch.Set "navigation" .Params.navigation }}
+						{{ range $key, $value := $.Scratch.Get "navigation" }}
+							<a href="{{ printf "%s/%s" "navigation" $value | urlize | relLangURL }}/">{{$value}}</a>
+						{{ end }} 
+					</div>
+				</li>
+				{{end}}
+			{{end}}
+		</ul>
+	</div>
+	<ul class="box3 clear">
+		{{- $pages := where .Site.RegularPages "Type" "navigation" -}}
+		{{- $navigation := .Site.Params.home.navigation -}}
+		{{- range $elem_index, $elem_val :=$pages -}}
+			{{ if lt $elem_index $navigation.Paginate}}
+				<li>
+					<a href="{{ .RelPermalink }}">
+						<div class="imgbox">
+							{{- $params := .Params | merge .Site.Params.page -}}
+							{{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
+							{{- $height := "auto" -}}
+							{{- $width := "auto" -}}
+							{{- with .Resources.GetMatch (printf "%s" ($image)) -}}
+							    {{- $image = .RelPermalink -}}
+							    {{- $height = .Height -}}
+							    {{- $width = .Width -}}
+							{{- end -}}
+							{{- with .Resources.GetMatch "featured-image" -}}
+							    {{- $image = .RelPermalink -}}
+							    {{- $height = .Height -}}
+							    {{- $width = .Width -}}
+							{{- end -}}
+							{{- with .Resources.GetMatch "featured-image-preview" -}}
+							    {{- $image = .RelPermalink -}}
+							    {{- $height = .Height -}}
+							    {{- $width = .Width -}}
+							{{- end -}}
+							<img src="{{$image}}">
+						</div>
+						<p>{{.Title}}</p>
+					</a>
+				</li>
+			{{- end -}}
+		{{- end -}}
+	</ul>
+</div>
+
+
+<script>
+$("#homenavigation .imgbox").css("height",$("#homenavigation .imgbox").outerWidth())
+$(window).on("resize",function(){
+	$("#homenavigation .imgbox").css("height",$("#homenavigation .imgbox").outerWidth())
+});
+</script>

@@ -1,0 +1,136 @@
+{{- define "list" }}
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+{{- define "content" -}}
+{{- $jqueryjs := resources.Get "js/zdycj/jquery.min.js" -}}
+{{- $fontsjs := resources.Get "js/zdycj/fonts.js" -}}
+<script type="text/javascript" src="{{ $jqueryjs.RelPermalink }}"></script>
+<script type="text/javascript" src="{{ $fontsjs.RelPermalink }}"></script>
+<div class="page alllist_conbox gameslist_conbox">
+	{{ .Scratch.Set "sidebartype" "Games" }}
+	<!-- ad -->
+	{{ partial "main/ad" . -}}
+	<!-- 小导航 -->
+	{{ partial "main/smheadnav" . -}}
+	<div class="conbox" id="alllist_con">
+		<!-- 侧边栏 -->
+		{{ partial "main/sidebar1" . -}}
+		
+		<div class="pagelistcon">
+			<p class="title">{{ T `indextext3` }}</p>
+			<p class="msgtext">{{ T `gamestext1` }}</p>
+			{{- if eq .Title "Games" -}}
+			<div class="liconbox">
+				<p class="smtit"><svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-zhiding1"></use>
+					</svg> {{ T `pinned` }}
+				</p>
+				<div class="smliconbox smliconbox1 clear">
+					{{- $pages := .Pages -}}
+					{{- $games := .Site.Params.list.games -}}
+					{{- if eq .Title "Games" -}}
+						{{- $pages := where .Site.RegularPages "Type" "games" -}}
+						{{- $pages := where $pages "Params.pinned" "==" true -}}
+						{{ range $elem_index, $elem_val :=$pages }}
+							<div class="zdy_gameslistli">
+								{{- .Render "summary" -}}
+							 </div>
+						{{- end -}}
+					{{- else -}}
+						<!-- {{- $pages := where $pages "Params.hidePage" "!=" true -}}
+						{{- $pages := where $pages "Params.pinned" "==" true -}}
+						{{ range $elem_index, $elem_val :=$pages }}
+						   <div class="zdy_gameslistli">
+						   	{{- .Render "summary" -}}
+						    </div>
+						{{- end -}} -->
+					{{- end -}}
+				</div>
+			</div>
+			{{- end -}}
+			<div class="liconbox">
+				<p class="smtit">
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-huore2"></use>
+					</svg> {{ T `recent` }}
+				</p>
+				<div class="smliconbox smliconbox2 clear">
+					{{- $pages := .Pages -}}
+					 {{- $games := .Site.Params.list.games -}}
+					 {{- if eq .Title "Games" -}}
+						 {{- $pages := where .Site.RegularPages "Type" "games" -}}
+						 {{- $pages := where $pages "Params.pinned" "!=" true -}}
+						 {{- with $games.paginate | default .Site.Params.paginate -}}
+							 {{- $pages = $.Paginate $pages . -}}
+						 {{- else -}}
+							 {{- $pages = .Paginate $pages -}}
+						 {{- end -}}
+						 {{- range $pages.Pages -}}
+							<div class="zdy_gameslistli">
+								{{- .Render "summary" -}}
+							 </div>
+						 {{- end -}}
+						 {{- partial "paginator.html" . -}}
+					 {{- else -}}
+					 	{{- $pages := where $pages "Params.hidePage" "!=" true -}}
+					 	
+					 	{{- with $games.paginate | default .Site.Params.paginate -}}
+					 	    {{- $pages = $.Paginate $pages . -}}
+					 	{{- else -}}
+					 	    {{- $pages = .Paginate $pages -}}
+					 	{{- end -}}
+					 	{{- range $pages.Pages -}}
+					 	   <div class="zdy_gameslistli">
+					 	   	{{- .Render "summary" -}}
+					 	    </div>
+					 	{{- end -}}
+					 	{{- partial "paginator.html" . -}}
+					 {{- end -}}
+					 
+				</div>
+			</div>
+			   <!--  -->
+			<!-- {{- if eq .Title "Games" -}}
+				{{- $pages := where .Site.RegularPages "Type" "news" -}}
+				{{- with $games.paginate | default .Site.Params.paginate -}}
+				    {{- $pages = $.Paginate $pages . -}}
+				{{- else -}}
+				    {{- $pages = .Paginate $pages -}}
+				{{- end -}}
+				{{- range $pages.Pages -}}
+				    <div class="zdy_newslistli">
+						{{- .Render "summary" -}}
+				    </div>
+				{{- end -}}
+				{{- partial "paginator.html" . -}}
+			{{- else -}}
+				{{- $pages := where $pages "Params.hidePage" "!=" true -}}
+				{{- with $games.paginate | default .Site.Params.paginate -}}
+				    {{- $pages = $.Paginate $pages . -}}
+				{{- else -}}
+				    {{- $pages = .Paginate $pages -}}
+				{{- end -}}
+				{{- range $pages.Pages -}}
+				   <div class="zdy_newslistli">
+						{{- .Render "summary" -}}
+				    </div>
+				{{- end -}}
+				{{- partial "paginator.html" . -}}
+			{{- end -}} -->
+		</div>
+		
+	</div>
+</div>
+<script type="text/javascript">
+	$(".desktop .menu-item").eq(3).addClass("active");
+	
+	var n1 = $(".smliconbox1 .zdy_gameslistli").length;
+	if(n1%2 ==0){
+		$(".smliconbox1 .zdy_gameslistli").eq(n1-2).css("border-color","rgba(0,0,0,0)")
+	}
+	var n2 = $(".smliconbox2 .zdy_gameslistli").length;
+	if(n2%2 ==0){
+		$(".smliconbox2 .zdy_gameslistli").eq(n2-2).css("border-color","rgba(0,0,0,0)")
+	}
+</script>
+{{- end -}}

@@ -1,0 +1,257 @@
+# Translations for Simplified Chinese
+# 简体中文的翻译
+# https://gohugo.io/content-management/multilingual/#translation-of-strings
+
+# === partials/header.html ===
+[selectLanguage]
+other = "选择语言"
+
+[switchTheme]
+other = "切换主题"
+
+[Light]
+other = "浅色"
+
+[Dark]
+other = "深色"
+
+[Black]
+other = "黑色"
+
+[Auto]
+other = "跟随系统"
+
+# === partials/footer.html ===
+[footertext1]
+other = "订阅我们的时事通讯"
+[footertext2]
+other = "订阅每周回顾时事通讯，将最新趋势直接发送到你的收件箱"
+[footertext3]
+other = "订阅"
+[footertext4]
+other = "随时取消订阅。T&C和隐私政策"
+[footertext5]
+other = "你的电子邮件"
+
+# === partials/home/content ===
+[homectext1]
+other = "元宇宙导航"
+[homectext2]
+other = "从一开始，不可替代代币（NFTs）就一再证明，它们可以改变游戏业务。NFTs信使的改进是一个特别有趣的时代，玩家在游戏经济中承担着更重要的工作，并根据需要获得报酬。"
+[homectext3]
+other = "创作者"
+
+# === index ===
+[indextext1]
+other = "元宇宙新闻"
+[indextext2]
+other = "元宇宙导航"
+[indextext3]
+other = "玩游戏挣钱"
+[indextext4]
+other = "一个词"
+[indextext5]
+other = "一个社区"
+[indextext6]
+other = "贡献"
+[indextext7]
+other = "塑造一个分散的未来"
+[indextext8]
+other = "贡献代码、改进文档、帮助他人、提交给showcase，并在财务上做出贡献。"
+[indextext9]
+other = "了解更多"
+[indextext10]
+other = "参与并提出治理建议"
+[indextext11]
+other = "Join Discord"
+[indextext12]
+other = "跟随我们，做所有事情的第一人"
+[indextext13]
+other = "Follow Twitter"
+[indextext14]
+other = "为生态系统做出贡献"
+[indextext15]
+other = "Open Github"
+[indextext16]
+other = "我们的指标、财务和其他文件是公开的"
+[indextext17]
+other = "Open Collective"
+
+# === Taxonomy ===
+[author]
+other = "作者"
+
+[allSome]
+other = "所有{{ .Some }}"
+
+[category]
+other = "分类"
+[categories]
+other = "分类"
+
+[tag]
+other = "标签"
+[tags]
+other = "标签"
+
+[series]
+other = "系列"
+
+[news]
+other = "资讯"
+[News]
+other = "资讯类别"
+
+[games]
+other = "游戏分类"
+[Games]
+other = "玩游戏挣钱"
+
+[navigation]
+other = "导航"
+[Navigation]
+other = "导航"
+
+# === ad ===
+[ad]
+other = "广告"
+
+[Home]
+other = "主页"
+[search]
+other = "搜索"
+[searchPlaceholder]
+other = "搜索文章标题或内容..."
+[clear]
+other = "清空"
+[cancel]
+other = "取消"
+[noResultsFound]
+other = "没有找到结果"
+[scplaceholder]
+other = "搜索关键字"
+[smnavtext1]
+other = "提交新内容"
+
+[all]
+other = "全部"
+
+# === single.html ===
+[contents]
+other = "目录"
+[wzml]
+other = "文章目录"
+[publishedOnDate]
+other = "发布于 {{ .Date }}"
+
+[includedIn]
+other = "收录于 "
+
+[includedInAnd]
+other = "和"
+
+[includedInCategories]
+other = "类别 {{ .Categories }}"
+
+
+[includedInSeries]
+other = "系列 {{ .Series }}"
+
+[wordCount]
+other = "约 {{ .Count }} 字"
+
+
+[readingTime]
+other = "预计阅读 {{ .Count }} 分钟"
+
+
+[views]
+other = "次阅读"
+
+[comments]
+other = "条评论"
+
+[updatedOnDate]
+other = "更新于 {{ .Date }}"
+
+[readMarkdown]
+other = "阅读原始文档"
+
+[viewSource]
+other = "查看源代码"
+
+[editThisPage]
+other = "编辑此页"
+
+[reportThisPage]
+other = "报告问题"
+
+[back]
+other = "返回"
+
+[home]
+other = "主页"
+
+[readMore]
+other = "阅读全文"
+
+[outdatedInfoWarningBefore]
+other = "本文最后更新于 "
+
+[outdatedInfoWarningAfter]
+other = "，文中内容可能已过时。"
+
+[sponsor]
+other = "赞赏"
+
+[prevpage]
+other = "上一篇"
+[nextpage]
+other = "下一篇"
+
+[more]
+other = "更多"
+
+[navtext1]
+other = "累计访问"
+[navtext2]
+other = "访问站点"
+
+[relevantcon]
+other = "相关资讯"
+
+[Newstags]
+other = "相关资讯"
+
+[browse]
+other = "浏览"
+
+[allgames]
+other = "所有游戏"
+[types]
+other = "类别"
+
+[gamestext1]
+other = "看看其他人用dok构建了什么。"
+
+[pinned]
+other = "置顶"
+[recent]
+other = "最新"
+
+[socialcontact]
+other = "Social Contact"
+[gamescreen]
+other = "Game Screen"
+[supportedntfs]
+other = "Supported NFTs"
+
+[community]
+other = "社区"
+[activities]
+other = "最新活动"
+[famland-metaverse]
+other = "Famland元宇宙"
+
+[socialscore]
+other = "社会分数"

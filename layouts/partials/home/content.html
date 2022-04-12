@@ -1,0 +1,42 @@
+<div class="indexcontentbox">
+	<div class="conbox1">
+		<h2>{{ T `homectext1`}}</h2>
+		<p>{{ T `homectext2`}}</p>
+	</div>
+	<div class="conbox_listb">
+		<ul>
+			<li>
+				<a href="news/">
+					<p class="num">{{$.Site.Taxonomies.categories.news.Count}}</p>
+					<p>{{$.Site.Taxonomies.categories.news.Page.Title}}</p>
+				</a>
+			</li>
+			<li>
+				<a href="navigation/">
+					<p class="num">{{$.Site.Taxonomies.categories.navigation.Count}}</p>
+					<p>{{$.Site.Taxonomies.categories.navigation.Page.Title}}</p>
+				</a>
+			</li>
+			<li>
+				<a href="games/">
+					<p class="num">{{$.Site.Taxonomies.categories.games.Count}}</p>
+					<p>{{$.Site.Taxonomies.categories.games.Page.Title}}</p>
+				</a>
+			</li>
+			<li>
+				<a href="authors/">
+					<p class="num zdy_authorsnum"></p>
+					<p>{{ T `homectext3`}}</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="zdy_authorsbox">
+	{{- range $.Site.Taxonomies.authors -}}
+		<span></span>
+	{{- end -}}
+</div>
+<script type="text/javascript">
+	$(".zdy_authorsnum").html($(".zdy_authorsbox span").length);
+</script>

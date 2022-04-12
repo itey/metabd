@@ -1,0 +1,115 @@
+html {
+  font-family: $global-font-family;
+  font-weight: $global-font-weight;
+  font-display: swap;
+  font-size: $global-font-size;
+  line-height: $global-line-height;
+  width:100%;
+  scroll-behavior: smooth;
+  overflow: overlay;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
+
+/* scrollbar, only support webkit */
+@if $custom-scrollbar {
+  ::-webkit-scrollbar {
+    width: .5rem;
+    height: .5rem;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: $custom-scrollbar-color;
+  
+    &:hover {
+      background-color: $custom-scrollbar-hover-color;
+    }
+  }
+}
+
+::selection {
+  background-color: $selection-color;
+
+  [theme=dark] & {
+    background-color: $selection-color-dark;
+  }
+  [theme=black] & {
+    background-color: $selection-color-black;
+  }
+}
+
+body {
+  background-color: $global-background-color;
+  color: $global-font-color;
+  @include overflow-wrap(break-word);
+  scrollbar-color: auto;
+  &[theme=dark] {
+    color: $global-font-color-dark;
+    background-color: $global-background-color-dark;
+  }
+  &[theme=black] {
+    color: $global-font-color-black;
+    background-color: $global-background-color-black;
+  }
+}
+
+@include ms;
+@include link(true, true);
+
+@import "../_partial/mask";
+@import "../_partial/icon";
+@import "../_partial/details";
+@import "../_partial/fixed-button";
+@import "../_partial/cookieconsent";
+
+img {
+  @include object-fit(contain);
+}
+
+.lazyload,
+.lazyloading {
+	opacity: 0;
+}
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 300ms;
+}
+img.lazyload:not([src]) {
+	visibility: hidden;
+}
+// zdy
+.icon {
+   width: 1em; height: 1em;
+   vertical-align: -0.15em;
+   fill: currentColor;
+   overflow: hidden;
+}
+ul,li{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+input::-webkit-input-placeholder{
+  color:$zdy_color3;
+}
+input::-moz-placeholder{   /* Mozilla Firefox 19+ */
+  color:$zdy_color3;
+}
+input:-moz-placeholder{    /* Mozilla Firefox 4 to 18 */
+  color:$zdy_color3;
+}
+input:-ms-input-placeholder{  /* Internet Explorer 10-11 */
+  color:$zdy_color3;
+}
+.clear:after{ content:""; display:block; clear:both}
+.clear{zoom:1}
+
+input{
+	border:none;
+	outline: none;
+	outline:0 none;
+}

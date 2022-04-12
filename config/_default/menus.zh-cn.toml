@@ -1,0 +1,51 @@
+[[main]]
+  identifier = "home"
+  pre = ""
+  post = ""
+  name = "首页"
+  url = "/"
+  title = ""
+  weight = 1
+[[main]]
+  identifier = "news"
+  pre = ""
+  post = ""
+  name = "资讯"
+  url = "/news/"
+  title = ""
+  weight = 2
+[[main]]
+  identifier = "navigation"
+  pre = ""
+  post = ""
+  name = "导航"
+  url = "/navigation/"
+  title = ""
+  weight = 3
+[[main]]
+  identifier = "games"
+  pre = ""
+  post = ""
+  name = "玩游戏挣钱"
+  url = "/games/"
+  title = ""
+  weight = 4
+[[main]]
+  identifier = "community"
+  pre = ""
+  post = ""
+  name = "社区"
+  url = "/community/activities/a/"
+  title = ""
+  weight = 5
+
+[[community]]
+  name = "最新活动"
+  weight = 1
+  identifier = "activities"
+  url = "/community/activities/"
+[[community]]
+  name = "Famland元宇宙"
+  weight = 2
+  identifier = "famland-metaverse"
+  url = "/community/famland-metaverse/"

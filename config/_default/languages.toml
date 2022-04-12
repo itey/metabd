@@ -1,0 +1,131 @@
+[zh-cn]
+weight = 1
+# 网站标题
+title = "元宇宙导航"
+# 网站描述
+description = "元宇宙导航"
+# 网站语言, 仅在这里 CN 大写
+languageCode = "zh-CN"
+languageName = "中文"
+# 是否包括中日韩文字
+hasCJKLanguage = true
+#contentDir = "content/zh-cn"
+	# 页面头部导航栏配置
+	[zh-cn.header]
+	# 桌面端导航栏模式 ("fixed", "normal", "auto")
+	desktopMode = "fixed"
+	# 移动端导航栏模式 ("fixed", "normal", "auto")
+	mobileMode = "auto"
+	#  主题切换模式
+	# 主题切换模式 ("switch", "select")
+	themeChangeMode = "switch"
+	#  页面头部导航栏标题配置
+		[zh-cn.header.title]
+		# LOGO 的 URL
+		logo = "/images/logo.png"
+		logo1 = "/images/logo1.png"
+		# 标题名称
+		name = ""
+		# 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+		pre = ""
+		# 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+		post = ""
+		#  是否为标题显示打字机动画
+		typeit = false
+	# 主页配置
+	[zh-cn.params]
+		#languageISO = "zh-CN"
+		[zh-cn.params.home]
+		#  RSS 文章数目
+		rss = 10
+		# 主页文章列表
+		[zh-cn.params.home.news]
+			enable = true
+			# 主页每页显示文章数量
+			paginate = 10
+			#  被 params.page 中的 hiddenFromHomePage 替代
+			# 当你没有在文章前置参数中设置 "hiddenFromHomePage" 时的默认行为
+			defaultHiddenFromHomePage = false
+		[zh-cn.params.home.games]
+			# 主页显示文章数量
+			paginate = 10
+		[zh-cn.params.home.navigation]
+			# 主页显示文章数量
+			paginate = 20
+		[zh-cn.params.list.navigation]
+			# 一类列表页数量
+			paginate = 12
+			# 二类列表页数量
+			paginate1 = 40
+		[zh-cn.params.list.games]
+			paginate = 12
+		[zh-cn.params.list.community]
+			paginate = 12
+		[zh-cn.params.list.tags]
+			paginate = 12
+
+[en]
+weight = 2
+# 网站标题
+title = "Metaverse Navigation"
+# 网站描述
+description = "Metaverse Navigation"
+# 网站语言
+languageCode = "en"
+languageName = "EN"
+# 是否包括中日韩文字
+hasCJKLanguage = true
+#contentDir = "content/en"
+	# 页面头部导航栏配置
+	[en.header]
+	# 桌面端导航栏模式 ("fixed", "normal", "auto")
+	desktopMode = "fixed"
+	# 移动端导航栏模式 ("fixed", "normal", "auto")
+	mobileMode = "auto"
+	#  主题切换模式
+	# 主题切换模式 ("switch", "select")
+	themeChangeMode = "switch"
+	#  页面头部导航栏标题配置
+		[en.header.title]
+		# LOGO 的 URL
+		logo = "/images/logo.png"
+		logo1 = "/images/logo1.png"
+		# 标题名称
+		name = ""
+		# 你可以在名称 (允许 HTML 格式) 之前添加其他信息, 例如图标
+		pre = ""
+		# 你可以在名称 (允许 HTML 格式) 之后添加其他信息, 例如图标
+		post = ""
+		#  是否为标题显示打字机动画
+		typeit = false
+	# 主页配置
+	[en.params]
+		#languageISO = "EN"
+		[en.params.home]
+		# amount of RSS pages
+		rss = 10
+		# 主页文章列表
+		[en.params.home.news]
+			enable = true
+			# 主页每页显示文章数量
+			paginate = 10
+			#  被 params.page 中的 hiddenFromHomePage 替代
+			# 当你没有在文章前置参数中设置 "hiddenFromHomePage" 时的默认行为
+			defaultHiddenFromHomePage = false
+		[en.params.home.games]
+			# 主页显示文章数量
+			paginate = 10
+		[en.params.home.navigation]
+			# 主页显示文章数量
+			paginate = 20
+		[en.params.list.navigation]
+			# 一类列表页数量
+			paginate = 12
+			# 二类列表页数量
+			paginate1 = 40
+		[en.params.list.games]
+			paginate = 12
+		[en.params.list.community]
+			paginate = 12
+		[en.params.list.tags]
+			paginate = 12

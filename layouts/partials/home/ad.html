@@ -1,0 +1,174 @@
+ <div class="zdy_pageadbox">
+ {{- $pages := where .Site.RegularPages "Type" "ads" -}}
+ {{- range $elem_index, $elem_val :=$pages -}}
+ 
+ {{- $params := .Params | merge .Site.Params.page -}}
+ 
+ 	{{- /* Featured image */ -}}
+ 	{{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
+ 	{{- $height := "auto" -}}
+ 	{{- $width := "auto" -}}
+ 	{{- with .Resources.GetMatch (printf "%s" ($image)) -}}
+ 	    {{- $image = .RelPermalink -}}
+ 	    {{- $height = .Height -}}
+ 	    {{- $width = .Width -}}
+ 	{{- end -}}
+ 	{{- with .Resources.GetMatch "featured-image" -}}
+ 	    {{- $image = .RelPermalink -}}
+ 	    {{- $height = .Height -}}
+ 	    {{- $width = .Width -}}
+ 	{{- end -}}
+ 	{{- with .Resources.GetMatch "featured-image-preview" -}}
+ 	    {{- $image = .RelPermalink -}}
+ 	    {{- $height = .Height -}}
+ 	    {{- $width = .Width -}}
+ 	{{- end -}}
+ 	{{ if (and (eq $params.adtype "1") (or (eq $params.adshow "all") (eq $params.adshow "index"))) }}
+ 		<!-- <a class="zdy_ad1" target="_blank" href="{{ $params.link }}">
+ 			<span class="adico">{{ T `ad` }}</span>
+ 			<img class="limg" isrc="{{.RelPermalink}}{{$params.featuredImage | relURL }}">
+ 			<img class="simg" isrc="{{.RelPermalink}}{{$params.featuredImage1 | relURL }}">
+ 		</a> -->
+		<span adico="{{ T `ad` }}" class="zdy_ad1" ihref="{{ $params.link }}" bsrc="{{.RelPermalink}}{{$params.featuredImage | relURL }}" ssrc="{{.RelPermalink}}{{$params.featuredImage1 | relURL }}"></span>
+ 	{{- end -}}
+ 	{{ if (and (eq $params.adtype "2") (or (eq $params.adshow "all") (eq $params.adshow "index"))) }}
+ 		<span adico="{{ T `ad` }}" class="zdy_ad2" ihref="{{ $params.link }}" lsrc="{{.RelPermalink}}{{$params.featuredImage | relURL }}" rsrc="{{.RelPermalink}}{{$params.featuredImage1 | relURL }}"></span>
+ 	{{- end -}}
+ {{- end -}}
+ </div>
+ <script type="text/javascript">
+ 	var Addata = {
+ 		adbl1:1206/130,//1206/130
+ 		adbl1_s:750/130,//750/130
+ 		showad1index:[],
+ 		adbl2:498/1277,//498/1277
+ 		showad2index:null,
+ 		adbl3:224/450,//224/450
+ 		init:function(){
+ 			var _this = this;
+ 			if($(".zdy_pageadbox .zdy_ad1").length>0){
+ 				var alengs = $(".zdy_homeadbox").length;
+ 				_this.showad1index = getImageRandomPosition($(".zdy_pageadbox .zdy_ad1").length);
+ 				
+				var doms;
+				var td
+ 				for(var i=0;i<$(".zdy_homeadbox").length; i++){
+						
+						td = $(".zdy_pageadbox .zdy_ad1").eq(_this.showad1index[i]);
+						
+						doms = ['<a target="_blank" href="',
+						td.attr("ihref"),
+						,'">',
+						'<span class="adico">',
+						td.attr("adico"),
+						,'</span>',
+						'<img class="limg" isrc="',
+						td.attr("bsrc"),
+						,'">',
+						'<img class="simg" isrc="',
+						td.attr("ssrc"),
+						,'">',
+					'</a>'].join("")
+					$(".zdy_homeadbox").eq(i).html(doms)
+				}
+ 				
+ 				_this.ad1_resizefn();
+ 			}
+ 			if($(".zdy_pageadbox .zdy_ad2").length>0){
+ 				_this.showad2index = _this.randomNum(0,$(".zdy_pageadbox .zdy_ad2").length-1);
+ 				var td = $(".zdy_pageadbox .zdy_ad2").eq(_this.showad2index);
+ 				var addoms = ['<div class="zdy_pageleftad2 zdy_pageleftad2_l"><a target="_blank" href="',
+ 						td.attr("ihref"),
+ 						'">',
+ 						'<span class="adico">',
+ 						td.attr("adico"),
+ 						'</span>',
+ 						'<img src="',
+ 						td.attr("lsrc"),
+ 						'">',
+ 					'</a><span class="closegg">x</span></div>','<div class="zdy_pageleftad2 zdy_pageleftad2_r"><a target="_blank" href="',
+ 						td.attr("ihref"),
+ 						'">',
+ 						'<span class="adico">',
+ 						td.attr("adico"),
+ 						'</span>',
+ 						'<img src="',
+ 						td.attr("rsrc"),
+ 						'">',
+ 					'</a><span class="closegg">x</span></div>'].join("")
+ 				$("body").append(addoms);
+ 				$(".zdy_pageleftad2 .closegg").on("click",function(){
+ 					$(this).parents(".zdy_pageleftad2").remove()
+ 				})
+ 				_this.ad2_resizefn();
+ 				
+ 			}
+ 			$(window).on("resize",function(){
+ 				if($(".zdy_pageadbox .zdy_ad1").length>0){
+ 					_this.ad1_resizefn()
+ 				}
+ 				if($(".zdy_pageadbox .zdy_ad2").length>0){
+ 					_this.ad2_resizefn();
+ 				}
+ 			});
+ 		},
+ 		ad1_resizefn:function(){
+ 			var _this = this;
+ 			var w = $(window).outerWidth();
+ 			$(".zdy_homeadbox img").hide()
+ 			if(w<=680){
+				$(".zdy_homeadbox").each(function(){
+					$(this).css("height",$(".zdy_homeadbox").outerWidth()/_this.adbl1_s)
+					$(this).find(".simg").attr("src",$(this).find(".simg").attr("isrc")).show()
+					if(!$(this).find(".simg").attr("src")){
+						$(this).hide()
+					}
+				})
+ 			}else{
+ 				$(".zdy_homeadbox").each(function(){
+					$(this).css("height",$(".zdy_homeadbox").outerWidth()/_this.adbl1)
+					$(this).find(".limg").attr("src",$(this).find(".limg").attr("isrc")).show()
+					if(!$(this).find(".limg").attr("src")){
+						$(this).hide()
+					}
+				})
+ 			}
+ 		},
+ 		ad2_resizefn:function(){
+ 			var w = ($("body").outerWidth()-$(".page").outerWidth())/2-10
+ 			$(".zdy_pageleftad2").css("width",w)
+ 		},
+ 		randomNum:function(minNum,maxNum){
+ 			switch(arguments.length){
+ 				case 1: 
+ 					return parseInt(Math.random()*minNum+1,10); 
+ 				break; 
+ 				case 2: 
+ 					return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
+ 				break; 
+ 					default: 
+ 						return 0; 
+ 					break; 
+ 			} 
+ 		}
+ 	}
+ 	Addata.init()
+ 	
+ 	function getImageRandomPosition(num){
+ 		var posArray=[]
+ 	    do {
+ 	        var n = Math.floor(Math.random() * num);//n为随机出现的0-11之内的数值
+ 	        for (var i = 0; i < posArray.length; i++) {
+ 	            if (n == posArray[i]) { 
+ 	                /*若n和数组里面的数值有重复，立即跳出函数*/
+ 	                break;
+ 	            }
+ 	        }
+ 	　　　　　　　　/*若n和数组里的数组无重复，那么i和数组的长度是相同的，这样可以避免出现重复的数字*/
+ 	        if (i == posArray.length) {
+ 	            posArray.push(n);
+ 	        }
+ 	    }while(posArray.length!=num);
+ 		return posArray
+ 	}
+ </script>

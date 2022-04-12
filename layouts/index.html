@@ -1,0 +1,138 @@
+{{- define "content" -}}
+{{- $swipercss := resources.Get "css/zdycj/swiper.min.css" -}}
+{{- $jqueryjs := resources.Get "js/zdycj/jquery.min.js" -}}
+{{- $fontsjs := resources.Get "js/zdycj/fonts.js" -}}
+{{- $vuejs := resources.Get "js/zdycj/vue.js" -}}
+{{- $swiperjs := resources.Get "js/zdycj/swiper.min.js" -}}
+<link rel="stylesheet" href="{{ $swipercss.RelPermalink }}">
+<script type="text/javascript" src="{{ $jqueryjs.RelPermalink }}"></script>
+<script type="text/javascript" src="{{ $fontsjs.RelPermalink }}"></script>
+<script type="text/javascript" src="{{ $vuejs.RelPermalink }}"></script>
+<script type="text/javascript" src="{{ $swiperjs.RelPermalink}}"></script>
+	{{- $params := .Scratch.Get "params" -}}
+	
+	<div class="page home">
+		<!-- 幻灯片 -->
+		{{- partial "home/slide.html" . -}}
+		
+		<!-- Content text -->
+		{{- partial "home/content.html" . -}}
+		<!-- 新闻 -->
+		<div class="titleb">
+			<h3 class=""><span style="color: #486efa;">
+				<svg class="icon" aria-hidden="true">
+				    <use xlink:href="#icon-a-baozhixinwenxiaoxi2"></use>
+				</svg>
+			</span> {{ T `indextext1`}}</h3>
+			<a class="morebtn" href="news/">{{ T `more`}} ></a>
+		</div>
+		{{- partial "home/news.html" . -}}
+		
+		<!-- 广告位 -->
+		<div class="zdy_homeadbox"></div>
+		
+		<!-- 导航 -->
+		<div class="titleb">
+			<h3 class=""><span style="color: #f3327f;">
+				<svg class="icon" aria-hidden="true">
+				    <use xlink:href="#icon-a-neirongliebiaomulu2"></use>
+				</svg>
+			</span> {{ T `indextext2`}}</h3>
+			<a class="morebtn" href="navigation/">{{ T `more`}} ></a>
+		</div>
+		{{- partial "home/navigation.html" . -}}
+		
+		<!-- 广告位 -->
+		<div class="zdy_homeadbox"></div>
+		
+		<!-- 游戏 -->
+		<div class="titleb">
+			<h3 class=""><span style="color: #ffb201;font-size: 26px;">
+				<svg class="icon" aria-hidden="true">
+				    <use xlink:href="#icon-a-meiyuan2"></use>
+				</svg>
+			</span> {{ T `indextext3`}}</h3>
+			<a class="morebtn" href="games/">{{ T `more`}} ></a>
+		</div>
+		{{- partial "home/playtoearn.html" . -}}
+		
+		<!-- 广告位 -->
+		<div class="zdy_homeadbox"></div>
+		
+		
+		<div class="zdy_homelmorebox">
+			<p class="text1">{{ T `indextext4`}}<br/>{{ T `indextext5`}}</p>
+			<p class="text2">{{ T `indextext6`}}<br/>{{ T `indextext7`}}</p>
+			<p class="text3">{{ T `indextext8`}}</p>
+			<a href="#" class="lmorebtn">{{ T `indextext9`}}</a>
+		</div>
+		<div class="zdy_homemsgbox">
+			<ul>
+				<li>
+					<span class="ico">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-discord"></use>
+						</svg>
+					</span>
+					<p>{{ T `indextext10`}}</p>
+					<div class="b_ab">
+						<a target="_blank" href="{{.Site.Params.social.Discord}}">{{ T `indextext11`}}</a>
+					</div>
+				</li>
+				<li>
+					<span class="ico">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-tuite"></use>
+						</svg>
+					</span>
+					<p>{{ T `indextext12`}}</p>
+					<div class="b_ab">
+						<a target="_blank" href="{{.Site.Params.social.Twitter}}">{{ T `indextext13`}}</a>
+					</div>
+				</li>
+				<li>
+					<span class="ico">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-github"></use>
+						</svg>
+					</span>
+					<p>{{ T `indextext14`}}</p>
+					<div class="b_ab">
+						<a target="_blank" href="{{.Site.Params.social.GitHub}}">{{ T `indextext15`}}</a>
+					</div>
+				</li>
+				<li>
+					<span class="ico">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-opencollective1"></use>
+						</svg>
+					</span>
+					<p>{{ T `indextext16`}}</p>
+					<div class="b_ab">
+						<a target="_blank" href="{{.Site.Params.social.Collective}}">{{ T `indextext17`}}</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="index_subscribebox">
+		    <div class="container">
+				<div class="leftbox">
+					<p class="tit1">{{ T `footertext1`}}</p>
+					<p>{{ T `footertext2`}}</p>
+				</div>
+				<div class="rightbox">
+					<div class="inputbox">
+						<p class="p1"><input type="text" name="" id="" value="" placeholder="{{T `footertext5`}}"/></p>
+						<p><span>{{ T `footertext3`}}</span></p>
+					</div>
+					<p class="p2">{{ T `footertext4`}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- ads -->
+	{{- partial "home/ad.html" . -}}
+	
+	
+{{ end }}

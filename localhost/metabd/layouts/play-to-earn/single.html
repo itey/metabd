@@ -1,0 +1,104 @@
+{{ define "main" }}
+	<div class="row flex-xl-nowrap">
+		<div class="col-lg-5 col-xl-4 docs-sidebar d-none d-lg-block">
+			<nav class="docs-links" aria-label="Main navigation">
+				{{ partial "sidebar/play-to-earn-menu.html" . }}
+			</nav>
+		</div>
+		{{ if ne .Params.toc false -}}
+		<nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+			{{ partial "sidebar/docs-toc.html" . }}
+		</nav>
+		{{ end -}}
+		{{ with .Params.toc -}}
+		<main class="docs-content col-lg-11 col-xl-9">
+		{{ else -}}
+		<main class="docs-content col-lg-11 mx-xl-auto">
+		{{ end -}}
+			<div class="showcase-meta d-flex justify-content-between">
+                                                                <span class="fw-bold">{{ .Title }}</span>
+				<span>
+
+    {{ if .Params.genre -}}<p class="card-text mt-2"><small>{{ range $index, $type := .Params.genre }}{{ if gt $index 0 }}, {{ end }}<a class="stretched-link position-relative" href="{{ "/playtoearn/genre/" | relURL }}{{ . | urlize }}/">{{ . | humanize }}</a>{{ end -}}</small></p>{{ end -}}
+
+					<!-- {{ if .Params.types -}}
+						<small class="types-single">{{ range $index, $type := .Params.types }}{{ if gt $index 0 }}, {{ end }}<a href="{{ "/playtoearn/types/" | relURL }}{{ . | urlize }}/">{{ . | title }}</a>{{ end -}}</small>
+					{{ end -}} 
+					<a class="view-website" href="{{ .Params.link }}" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg></a>  -->
+				</span>
+			</div>
+			{{ $image := index .Params.images 0 -}}
+			{{ .Scratch.Set "src" $image -}}
+			{{ .Scratch.Set "alt" .Title -}}
+			{{ .Scratch.Set "class" "card-img-top m-0 p-0" -}}
+			<div class="card my-3">
+				{{ partial "main/img.html" . }}
+			</div>
+			<h1>{{ .Title }}</h1>
+			<p class="lead">{{ .Params.lead | safeHTML }}</p>
+			{{ if ne (hugo.Environment) "development" -}}
+				{{ partial "main/carbonads.html" . }}
+			{{ end -}}
+
+			
+			{{ if .Params.genre -}}
+				<h4>Genre</h4>
+				<!-- {{ range $index, $type := .Params.genre }}<li><a href="{{ "/playtoearn/genre/" | relURL }}{{ . | urlize }}/">{{ . | title }}</a></li>{{ end -}} -->
+
+{{ if .Params.genre -}}<p><big>{{ range $index, $type := .Params.genre }}{{ if gt $index 0 }}, {{ end }}<a class="stretched-link position-relative" href="{{ "/playtoearn/genre/" | relURL }}{{ . | urlize }}/">{{ . | humanize }}</a>{{ end -}}</big></p>{{ end -}}
+
+
+			{{ end -}}
+
+                                               <h4>Score</h4>
+			<p class="lead">{{ .Params.score | safeHTML }}</p>
+                                                <h4>Status</h4>
+			<p class="lead">{{ .Params.status | safeHTML }}</p>
+
+			{{ if .Params.functionalities -}}
+				<h4>Blockchain</h4>
+				<ul>
+				{{ range $index, $type := .Params.blockchain }}<li>{{ . | title }}</li>{{ end -}}
+				</ul>
+			{{ end -}}
+
+                                               <h4>NFT Support</h4>
+			<p class="lead">{{ .Params.nft_support | safeHTML }}</p>
+
+                                                <h4>Free to Play</h4>
+			<p class="lead">{{ .Params.free_to_play | safeHTML }}</p>
+
+                                              	{{ if .Params.play_to_earn -}}
+                                                <h4>Play to Earn</h4>
+
+												<p><big>{{ range $index, $type := .Params.play_to_earn }}{{ if gt $index 0 }}, {{ end }}{{ . | title }}</big></p>{{ end -}}
+
+			{{ end -}}
+
+                                                <h4>Game Summary</h4>
+                                                {{ partial "main/headline-hash.html" .Content }}
+
+                                                 <h4>Social Contract</h4>
+<p><B>Website</B>: <a href="{{ .Params.website }}">{{ .Params.website }}</a></p>
+<p><B>Twitter</B>: <a href="{{ .Params.twitter }}">{{ .Params.twitter }}</a></p>
+<p><B>Discord</B>: <a href="{{ .Params.discord }}">{{ .Params.discord }}</a></p>
+<p><B>Telegram</B>: <a href="{{ .Params.telegram }}"> {{ .Params.telegram }}</a></p>
+<p><B>Github</B>: <a href="{{ .Params.github }}">{{ .Params.github }}</a></p>
+<p><B>Youtube</B>: <a href="{{ .Params.youtube }}">{{ .Params.youtube }}</a></p>
+<p><B>Twitch</B>: <a href="{{ .Params.twitch }}"> {{ .Params.twitch }}</a></p>
+<p><B>Facebook</B>: <a href="{{ .Params.facebook }}">{{ .Params.facebook }}</a></p>
+<p><B>Instagram</B>: <a href="{{ .Params.instagram }}">{{ .Params.instagram }}</a></p>
+<p><B>Reddit</B>: <a href="{{ .Params.reddit }}">{{ .Params.reddit }}</a></p>
+<p><B>Medium</B>: <a href="{{ .Params.medium }}"> {{ .Params.medium }}</a></p>
+<p><B>Steam</B>: <a href="{{ .Params.steam }}">{{ .Params.steam }}</a></p>
+<p><B>Gitbook</B>: <a href="{{ .Params.gitbook }}">{{ .Params.gitbook }}</a></p>
+<p><B>Google Play</B>: <a href="{{ .Params.googleplay }}">{{ .Params.googleplay }}</a></p>
+<p><B>App Store</B>: <a href="{{ .Params.appstore }}}"> {{ .Params.appstore }}</a></p>
+
+
+
+			 {{ partial "main/edit-page.html" . }} 
+			{{ partial "main/docs-navigation.html" . }}
+		</main>
+	</div>
+{{ end }}

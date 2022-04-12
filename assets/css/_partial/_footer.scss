@@ -1,0 +1,103 @@
+// footer {
+//   // height: 2rem;
+// 	width: 100%;
+// 	text-align: center;
+// 	line-height: 1.25rem;
+// 	padding: 2rem 0;
+// 	box-shadow: $zdy-bordershow;
+// 	[theme=dark] & {
+// 	  box-shadow: $zdy-bordershow-dark;
+// 	  background: $zdy-bg-dark;
+// 	}
+// 	[theme=black] & {
+// 	  box-shadow: $zdy-bordershow-black;
+// 	  background: $zdy-bg-black;
+// 	}
+// 	.footer-container {
+// 		font-size: .875rem;
+// 		display: -webkit-flexbox;
+// 		display: -ms-flexbox;
+// 		display: flex;
+// 		-webkit-justify-content: space-between;
+// 		-ms-justify-content: space-between;
+// 		justify-content: space-between;
+// 		align-items: center;
+// 		box-sizing: border-box;
+// 		width: 100%;
+// 		padding: 0 2rem;
+		
+// 		.footer-line {
+// 		  width: 100%;
+// 			.icp-br {
+// 			display: none;
+// 			}
+// 		}
+// 		.footer-leftbox{
+// 			text-align: left;
+// 			padding-right: 4rem;
+// 			.tit1{
+// 				font-size: 14px;
+// 				font-weight: bold;
+// 				margin-top: 0;
+// 			}
+// 		}
+// 		.footer-rightbox{
+// 			text-align: left;
+// 			padding-left: 1rem;
+// 		}
+// 		.footer-rightbox .inputbox{
+// 			display: -webkit-flexbox;
+// 			display: -ms-flexbox;
+// 			display: flex;
+// 			height: 40px;
+// 			line-height: 40px;
+// 			-webkit-justify-content: space-between;
+// 			-ms-justify-content: space-between;
+// 			justify-content:center;
+// 			    align-items:center;
+
+// 		}
+// 		.footer-rightbox .p2{
+			
+// 			[theme=light] & {
+// 				color: $zdy_color2;
+// 			}
+// 			[theme=auto] & {
+// 				color: $zdy_color2;
+// 			}
+// 		}
+// 		.footer-rightbox .inputbox p{
+// 			margin: 0;
+// 			height: 100%;
+// 			box-sizing: border-box;
+// 			padding: 0 5px;
+// 		}
+// 		.footer-rightbox .inputbox .p1{
+// 			border: 1px solid #6E7177;
+// 			height: 100%;
+// 			width: 15rem;
+// 			border-radius: 10px;
+// 		}
+// 		.footer-rightbox .inputbox p input{
+// 			border:none;
+// 			padding: 0;
+// 			margin: 0;
+// 			background: none;
+// 			height: 100%;
+// 			width: 100%;
+// 		}
+// 		.footer-rightbox .inputbox span{
+// 			display: block;
+// 			text-align: right;
+// 			background: $zdy_btn1_bg;
+// 			color: $zdy_btn1_color;
+// 			width: 8rem;
+// 			height: 100%;
+// 			text-align: center;
+// 			cursor: pointer;
+// 			border-radius: 10px;
+// 		}
+// 	}
+// 	input{outline:0 none;}
+//   @include blur;
+// }

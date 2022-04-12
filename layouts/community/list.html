@@ -1,0 +1,68 @@
+{{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+{{- define "content" -}}
+{{- $swipercss := resources.Get "css/zdycj/swiper.min.css" -}}
+{{- $jqueryjs := resources.Get "js/zdycj/jquery.min.js" -}}
+{{- $fontsjs := resources.Get "js/zdycj/fonts.js" -}}
+
+<link rel="stylesheet" href="{{ $swipercss.RelPermalink }}">
+<script type="text/javascript" src="{{ $jqueryjs.RelPermalink }}"></script>
+<script type="text/javascript" src="{{ $fontsjs.RelPermalink }}"></script>
+
+<div class="page single alllist_conbox communitylist_conbox">
+	{{ .Scratch.Set "sidebartype" .Title }}
+	<!-- ad -->
+	{{ partial "main/ad" . -}}
+	<!-- 小导航 -->
+	{{ partial "main/smheadnav" . -}}
+	<div class="conbox" id="alllist_con">
+		<!-- 侧边栏 -->
+		{{ partial "main/sidebar2" . -}}
+		
+		<div class="pagelistcon">
+			<p class="title">
+				{{ $sidebartype := .Scratch.Get "sidebartype" }}
+				
+				 {{ T .Title }}
+			</p>
+			    {{- $pages := .Pages -}}
+			    {{- $community := .Site.Params.list.community -}}
+			{{- if eq .Title "community" -}}
+				{{- $pages := where .Site.RegularPages "Type" "community" -}}
+				{{- with $community.paginate | default .Site.Params.paginate -}}
+				    {{- $pages = $.Paginate $pages . -}}
+				{{- else -}}
+				    {{- $pages = .Paginate $pages -}}
+				{{- end -}}
+				{{- range $pages.Pages -}}
+				    <div class="zdy_newslistli">
+						{{- .Render "summary" -}}
+				    </div>
+				{{- end -}}
+				{{- partial "paginator.html" . -}}
+			{{- else -}}
+				{{- $pages := where $pages "Params.hidePage" "!=" true -}}
+				{{- with $community.paginate | default .Site.Params.paginate -}}
+				    {{- $pages = $.Paginate $pages . -}}
+				{{- else -}}
+				    {{- $pages = .Paginate $pages -}}
+				{{- end -}}
+				{{- range $pages.Pages -}}
+				   <div class="zdy_newslistli">
+						{{- .Render "summary" -}}
+				    </div>
+				{{- end -}}
+				{{- partial "paginator.html" . -}}
+			{{- end -}}
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	var itype = {{ T .Name }};
+	$(".desktop .menu-item").eq(4).addClass("active");
+	$(".sidebarbox_mb2 li").each(function(){
+		if(itype == $(this).attr("itype")){
+			$(this).addClass("active")
+		}
+	})
+</script>
+{{ end }}

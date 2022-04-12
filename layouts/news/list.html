@@ -1,0 +1,63 @@
+{{- define "list" }}
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+{{- define "content" -}}
+{{- $jqueryjs := resources.Get "js/zdycj/jquery.min.js" -}}
+{{- $fontsjs := resources.Get "js/zdycj/fonts.js" -}}
+<script type="text/javascript" src="{{ $jqueryjs.RelPermalink }}"></script>
+<script type="text/javascript" src="{{ $fontsjs.RelPermalink }}"></script>
+<div class="page alllist_conbox newslist_conbox">
+	{{ .Scratch.Set "sidebartype" "News" }}
+	<!-- ad -->
+	{{ partial "main/ad" . -}}
+	<!-- 小导航 -->
+	{{ partial "main/smheadnav" . -}}
+	<div class="conbox" id="alllist_con">
+		<!-- 侧边栏 -->
+		{{ partial "main/sidebar" . -}}
+		
+		<div class="pagelistcon">
+			<p class="title">
+				{{ $sidebartype := .Scratch.Get "sidebartype" }}
+				{{if eq $sidebartype .Title}}
+				 {{ T `all`}}
+				{{else}}
+				 {{ .Title }}
+				{{end}}
+			</p>
+			    {{- $pages := .Pages -}}
+			    {{- $news := .Site.Params.home.news -}}
+			{{- if eq .Title "News" -}}
+				{{- $pages := where .Site.RegularPages "Type" "news" -}}
+				{{- with $news.paginate | default .Site.Params.paginate -}}
+				    {{- $pages = $.Paginate $pages . -}}
+				{{- else -}}
+				    {{- $pages = .Paginate $pages -}}
+				{{- end -}}
+				{{- range $pages.Pages -}}
+				    <div class="zdy_newslistli">
+						{{- .Render "summary" -}}
+				    </div>
+				{{- end -}}
+				{{- partial "paginator.html" . -}}
+			{{- else -}}
+				{{- $pages := where $pages "Params.hidePage" "!=" true -}}
+				{{- with $news.paginate | default .Site.Params.paginate -}}
+				    {{- $pages = $.Paginate $pages . -}}
+				{{- else -}}
+				    {{- $pages = .Paginate $pages -}}
+				{{- end -}}
+				{{- range $pages.Pages -}}
+				   <div class="zdy_newslistli">
+						{{- .Render "summary" -}}
+				    </div>
+				{{- end -}}
+				{{- partial "paginator.html" . -}}
+			{{- end -}}
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(".desktop .menu-item").eq(1).addClass("active")
+</script>
+{{- end -}}

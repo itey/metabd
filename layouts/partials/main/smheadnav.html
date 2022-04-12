@@ -1,0 +1,65 @@
+<div class="smheadnavbox">
+	<div class="leftbox">
+		<div class="smheadnavsearch smheadnavsearch_desktop">
+			<a href="#" onclick="return false;" class="search-button search-toggle" id="search-toggle-desktop" title="{{ T `search` }}">
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-sousuo"></use>
+				</svg>
+			</a>
+			<span class="search" id="search-desktop">
+				<input type="text" placeholder="{{ T `scplaceholder` }}" id="search-input-desktop">
+			</span>
+			<a href="#" onclick="return false;" class="search-button search-clear" id="search-clear-desktop" title="{{ T `clear` }}">
+				<i class="fas fa-times-circle fa-fw"></i>
+			</a>
+			<span class="search-button search-loading" id="search-loading-desktop">
+				<i class="fas fa-spinner fa-fw fa-spin"></i>
+			</span>
+		</div>
+		<div class="smheadnavsearch smheadnavsearch_mobile" id="search-input-mobileshow">
+			<a href="#" onclick="return false;" class="search-button search-toggle" >
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-sousuo"></use>
+				</svg>
+			</a>
+			<span class="search">
+				<input readonly type="text" placeholder="{{ T `scplaceholder` }}" >
+			</span>
+		</div>
+	</div>
+	<div class="midbox">
+		{{ if .Site.Params.options.breadCrumb -}}
+		<nav aria-label="breadcrumb">
+			<ol class="breadcrumb">
+				{{ partial "main/breadcrumb" . -}}
+				{{ $sidebartype := .Scratch.Get "sidebartype" }}
+				<li class="breadcrumb-item active" aria-current="page">
+					{{if eq $sidebartype .Title}}
+					 {{ T .Title }}
+					{{else}}
+					 {{ .Title }}
+					{{end}}
+				</li>
+			</ol>
+		</nav>
+		{{- end -}}
+	</div>
+	<div class="rightbox">
+		<button class="btn doks-sidebar-toggle d-lg-none ms-3 order-3" type="button" data-bs-toggle="collapse" data-bs-target="#doks-docs-nav" aria-controls="doks-docs-nav" aria-expanded="false" aria-label="Toggle documentation navigation">
+		  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Expand</title><polyline points="7 13 12 18 17 13"></polyline><polyline points="7 6 12 11 17 6"></polyline></svg>
+		  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="doks" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><title>Collapse</title><polyline points="17 11 12 6 7 11"></polyline><polyline points="17 18 12 13 7 18"></polyline></svg>
+		</button>
+		{{if .Site.Params.Page.submitnewcontent}}
+		<a class="editbtn" href="">
+			<span>
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-shuru"></use>
+				</svg>
+			</span>
+		{{ T "smnavtext1" }}</a>
+		{{end}}
+	</div>
+	<div class="search-dropdown desktop">
+		<div id="search-dropdown-desktop"></div>
+	</div>
+</div>

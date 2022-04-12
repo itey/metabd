@@ -1,0 +1,197 @@
+ {{- define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end -}}
+{{- define "content" -}}
+{{- $swipercss := resources.Get "css/zdycj/swiper.min.css" -}}
+{{- $jqueryjs := resources.Get "js/zdycj/jquery.min.js" -}}
+{{- $fontsjs := resources.Get "js/zdycj/fonts.js" -}}
+{{- $swiperjs := resources.Get "js/zdycj/swiper.min.js" -}}
+<link rel="stylesheet" href="{{ $swipercss.RelPermalink }}">
+<script type="text/javascript" src="{{ $jqueryjs.RelPermalink }}"></script>
+<script type="text/javascript" src="{{ $fontsjs.RelPermalink }}"></script>
+<script type="text/javascript" src="{{ $swiperjs.RelPermalink}}"></script>
+
+{{- $viewerjs := resources.Get "js/zdycj/viewer.min.js" -}}
+{{- $viewercss := resources.Get "css/zdycj/viewer.min.css" -}}
+<link rel="stylesheet" href="{{ $viewercss.RelPermalink }}">
+<script type="text/javascript" src="{{ $viewerjs.RelPermalink }}"></script>
+
+<div class="page single alllist_conbox navssingle_w">
+	{{ .Scratch.Set "sidebartype" "Navigation" }}
+	<!-- ad -->
+	{{ partial "main/ad" . -}}
+	<!-- 小导航 -->
+	{{ partial "main/smheadnav" . -}}
+	<div class="conbox" id="alllist_con">
+		<!-- 侧边栏 -->
+		{{ partial "main/sidebar" . -}}
+		<!-- 内容 -->
+		<div class="navssinglebox">
+			{{- $params := .Scratch.Get "params" -}}
+			<div class="topbox">
+			{{- /* Featured image */ -}}
+			{{- $image := $params.featuredimage -}}
+			{{- $width := "auto" -}}
+			{{- $height := "auto" -}}
+			{{- with .Resources.GetMatch (printf "**%s" $params.featuredimage) -}}
+			    {{- $image = .RelPermalink -}}
+			    {{- $width = .Width -}}
+			    {{- $height = .Height -}}
+			{{- end -}}
+			{{- with .Resources.GetMatch "featured-image" -}}
+			    {{- $image = .RelPermalink -}}
+			    {{- $width = .Width -}}
+			    {{- $height = .Height -}}
+			{{- end -}}
+			{{- with $image -}}
+				<div class="featured-image">
+					{{- dict "Src" . "Title" $.Description "Resources" $.Resources "Width" $width "Height" $height | partial "plugin/image.html" -}}
+				</div>
+			{{- end -}}
+				<div class="conbox">
+					<h1 class="single-title animate__animated animate__flipInX">{{ .Title }}</h1>
+					<p class="single-description">{{ .Description }}</p>
+				</div>
+				<div class="rightbox">
+					<!-- <p class="num">123123</p>
+					<p class="text1">{{ T `navtext1`}}</p> -->
+					<a target="_blank" class="linkbtn" href="{{ $params.link }}">{{ T `navtext2`}}</a>
+				</div>
+			</div>
+			{{- /* Series list */ -}}
+			{{- if $params.series | and $params.seriesNavigation -}}
+			        {{- range $key, $value := .Site.Taxonomies.series -}}
+			            {{- range $params.series -}}
+			                {{- if . | urlize | eq ($key | urlize) -}}
+			                    {{- $term := $.Site.GetPage "series" $key -}}
+			                    <div class="details series-nav open">
+			                        <div class="details-summary series-title">
+			                            <span>{{ T "series" }} - {{ $term.Title }}</span>
+			                            <span><i class="details-icon fas fa-angle-right"></i></span>
+			                        </div>
+			                        <div class="details-content series-content">
+			                            <nav>
+			                                <ul>
+			                                    {{- range $value.Pages -}}
+			                                        {{- if .LinkTitle | eq $.Title -}}
+			                                            <li><span class="active">{{ .LinkTitle }}</span></li>
+			                                        {{- else }}
+			                                            <li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+			                                        {{- end }}
+			                                    {{- end -}}
+			                                </ul>
+			                            </nav>
+			                        </div>
+			                    </div>
+			                {{- end -}}
+			            {{- end -}}
+			        {{- end -}}
+			{{- end -}}
+			
+			{{- /* Content */ -}}
+			<div class="content" id="content">
+			    {{- /* Outdated Article Reminder */ -}}
+			    {{- partial "single/outdatedArticleReminder.html" . -}}
+			    {{- dict "Content" .Content "Ruby" $params.ruby "Fraction" $params.fraction "Fontawesome" $params.fontawesome | partial "function/content.html" | safeHTML -}}
+			</div>
+			{{/* Sponsor */}}
+			{{- partial "single/sponsor.html" . -}}
+			   
+			   
+			{{- /* Footer */ -}}
+			
+			{{- partial "single/footer.html" . -}}
+			{{- .Scratch.Set "comment" $params.comment -}}
+			{{- if eq .Params.comment true -}}
+			    {{- .Scratch.Set "comment" .Site.Params.comment -}}
+			{{- else if eq .Params.comment false -}}
+			    {{- .Scratch.Set "comment" dict -}}
+			{{- end -}}
+			<!-- ad -->
+			{{ partial "main/ad4" . -}}
+			<!-- 相关资讯 -->
+			<div class="relevantbox conrelevantbox" >
+				<div class="titbox clear">
+					<p class="tit">{{ T `relevantcon`}}</p><a href="{{"news" | relLangURL}}" class="morebtn">{{ T `more`}} ></a>
+				</div>
+				<div class="relevantswiper swiper">
+				  <div class="swiper-wrapper">
+					  {{- $pages := where .Site.RegularPages "Type" "news" -}}
+					  {{- $pages := where $pages "Params.tags" "intersect" .Params.tags -}}
+					  
+					  {{- $pages := where $pages "Params.hidePage" "!=" true -}}
+					  {{ range $elem_index, $elem_val :=$pages }}
+					  	{{ if lt $elem_index 10}}
+					  	<div class="swiper-slide relevantlistli">
+					  	{{- partial "single/relevantsummary.html" . -}}
+					  	</div>
+					  	{{ end }}
+					  {{ end }}
+				  </div>
+				  <div class="swiper-button-next"></div>
+				  <div class="swiper-button-prev"></div>
+				</div>
+				<!-- <div class="">
+					
+				</div> -->
+			</div>
+			
+			{{- /* Comment */ -}}
+			{{- partial "comment.html" . -}}
+		</div>
+		<!-- 相关资讯 -->
+		<div class="relevantbox articlecatalogueboxad" >
+			<!-- {{ "newstags" | relLangURL }}?tags={{ range .Params.tags }}{{ . | urlize }},{{ end }} -->
+			<div class="titbox clear">
+				<p class="tit">{{ T `relevantcon`}}</p><a href="{{"news" | relLangURL}}" class="morebtn">{{ T `more`}} ></a>
+			</div>
+			<div class="">
+				{{- $pages := where .Site.RegularPages "Type" "news" -}}
+				{{- $pages := where $pages "Params.tags" "intersect" .Params.tags -}}
+				
+				{{- $pages := where $pages "Params.hidePage" "!=" true -}}
+				{{ range $elem_index, $elem_val :=$pages }}
+					{{ if lt $elem_index 6}}
+					<div class="relevantlistli">
+					{{- partial "single/relevantsummary.html" . -}}
+					</div>
+					{{ end }}
+				{{ end }}
+			</div>
+			{{ partial "main/ad3" . -}}
+		</div>
+			
+	</div>
+</div>
+<div class="viewimagebox">
+  <img id="image" src="picture.jpg" alt="Picture">
+</div>
+<script type="text/javascript">
+	$(".desktop .menu-item").eq(2).addClass("active");
+	var swiper = new Swiper(".relevantswiper", {
+	        slidesPerView: 3,
+	        spaceBetween: 10,
+	        pagination: {
+	          clickable: true,
+	        },
+			navigation: {
+			  nextEl: ".swiper-button-next",
+			  prevEl: ".swiper-button-prev",
+			},
+	      });
+	// View an image.
+	var viewer = new Viewer(document.getElementById('image'), {
+	  inline: true,
+	  viewed() {
+	    viewer.zoomTo(1);
+	  },
+	});
+	setTimeout(function(){
+		var conimages = new Viewer(document.getElementById('content'));
+	},1200)
+</script>
+{{- end -}}
+
+
+
+  
+	
+

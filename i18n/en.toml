@@ -1,0 +1,259 @@
+# Translations for English
+# 英文翻译
+# https://gohugo.io/content-management/multilingual/#translation-of-strings
+
+# === partials/header.html ===
+[selectLanguage]
+other = "Select Language"
+
+[switchTheme]
+other = "Switch Theme"
+
+[Light]
+other = "Light"
+
+[Dark]
+other = "Dark"
+
+[Black]
+other = "Black"
+
+[Auto]
+other = "Auto"
+
+# === partials/footer.html ===
+[footertext1]
+other = "Subscribe to our newsletter"
+[footertext2]
+other = "Subscribe to the Week in Review newsletter and get the latest trends directly to your inbox"
+[footertext3]
+other = "SUBSCRIBE"
+[footertext4]
+other = "Unsubscribe at any time. T&Cs and Privacy Policy"
+[footertext5]
+other = "Your Email"
+
+# === partials/home/content ===
+[homectext1]
+other = "Metaverse Navigation"
+[homectext2]
+other = "Since their beginning, non-fungible tokens (NFTs) have demonstrated over and over that they can change the gaming business. The improvement of NFTs messengers is an especially intriguing time wherein gamers take on much more significant jobs in the gaming economy and are remunerated as needs be."
+[homectext3]
+other = "Creator"
+
+# === index ===
+[indextext1]
+other = "Metaverse News"
+[indextext2]
+other = "Metaverse Navigation"
+[indextext3]
+other = "Play to Earn"
+[indextext4]
+other = "One Word"
+[indextext5]
+other = "One Community"
+[indextext6]
+other = "Contribute"
+[indextext7]
+other = "Shape a Decentralised Future"
+[indextext8]
+other = "Contribute to code, improve documentation, help others, submit to showcase, and contribute financially."
+[indextext9]
+other = "Learn More"
+[indextext10]
+other = "engage and initiate proposals for governance"
+[indextext11]
+other = "Join Discord"
+[indextext12]
+other = "follow us and be first for all the things"
+[indextext13]
+other = "Follow Twitter"
+[indextext14]
+other = "contribute to the ecosystem"
+[indextext15]
+other = "Open Github"
+[indextext16]
+other = "Our metrics, financials, and other documents are public"
+[indextext17]
+other = "Open Collective"
+
+# === Taxonomy ===
+[author]
+other = "Author"
+
+[allSome]
+other = "All {{ .Some }}"
+
+[category]
+other = "Category"
+[categories]
+other = "Categories"
+
+[tag]
+other = "Tag"
+[tags]
+other = "Tags"
+
+[series]
+other = "Series"
+
+[news]
+other = "news"
+[News]
+other = "News"
+
+[games]
+other = "Game Genre"
+[Games]
+other = "Play to Earn"
+
+[navigation]
+other = "Navigation"
+[Navigation]
+other = "Navigation"
+
+
+# === ad ===
+[ad]
+other = "ad"
+
+[Home]
+other = "Home"
+[search]
+other = "Search"
+[searchPlaceholder]
+other = "Search titles or contents..."
+[clear]
+other = "Clear"
+[cancel]
+other = "Cancel"
+[noResultsFound]
+other = "No results found"
+[scplaceholder]
+other = "Search keywords"
+[smnavtext1]
+other = "Submit new content"
+
+[all]
+other = "all"
+
+# === single.html ===
+[contents]
+other = "Contents"
+[wzml]
+other = "Article catalogue"
+[publishedOnDate]
+other = "published on {{ .Date }}"
+
+[includedIn]
+other = "included in "
+
+[includedInAnd]
+other = "and"
+
+[includedInCategories]
+one = "category {{ .Categories }}"
+other = "categories {{ .Categories }}"
+
+[includedInSeries]
+other = "series {{ .Series }}"
+
+[wordCount]
+one = "One word"
+other = "{{ .Count }} words"
+
+[readingTime]
+one = "One minute"
+other = "{{ .Count }} minutes"
+
+[views]
+other = "views"
+
+[comments]
+other = "comments"
+
+[updatedOnDate]
+other = "Updated on {{ .Date }}"
+
+[readMarkdown]
+other = "Read markdown"
+
+[viewSource]
+other = "View source"
+
+[editThisPage]
+other = "Edit this page"
+
+[reportThisPage]
+other = "Report issue"
+
+[back]
+other = "Back"
+
+[home]
+other = "Home"
+
+[readMore]
+other = "Read more..."
+
+[outdatedInfoWarningBefore]
+other = "This article was last updated on "
+
+[outdatedInfoWarningAfter]
+other = ", the content may be out of date."
+
+[sponsor]
+other = "Sponsor"
+
+[prevpage]
+other = "prev"
+[nextpage]
+other = "next"
+
+[more]
+other = "More"
+
+[navtext1]
+other = "Cumulative access"
+[navtext2]
+other = "Visit Site"
+
+[relevantcon]
+other = "Relevant information"
+
+[Newstags]
+other = "Relevant information"
+
+[browse]
+other = "BROWSE"
+
+[allgames]
+other = "All Games"
+[types]
+other = "Types"
+
+[gamestext1]
+other = "Check out what others have build with Doks."
+
+[pinned]
+other = "Pinned"
+[recent]
+other = "Recent"
+
+[socialcontact]
+other = "Social Contact"
+[gamescreen]
+other = "Game Screen"
+[supportedntfs]
+other = "Supported NFTs"
+
+[community]
+other = "community"
+[activities]
+other = "activities"
+[famland-metaverse]
+other = "metaverse"
+
+[socialscore]
+other = "Social Score"
+

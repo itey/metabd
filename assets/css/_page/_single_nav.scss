@@ -1,0 +1,171 @@
+.navssinglebox{
+	flex: 1;
+	-webkit-flex: 1;
+	margin:0 20px 0 10px;
+	
+	overflow: hidden;
+}
+.navssingle_w{
+	.topbox{
+		display: flex;
+		display: -webkit-flex;
+		padding: 20px 0 20px;
+		.featured-image{
+			width: 128px;
+			height: 128px;
+			border-radius: 15px;
+			overflow: hidden;
+			margin: 0;
+			img{
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+			}
+		}
+		.conbox{
+			padding-left: 10px;
+			flex: 1;
+			-webkit-flex: 1;
+			overflow: hidden;
+			.single-title{
+				width: 100%;
+				height: 30px;
+				font-size: 30px;
+				font-weight: bold;
+				line-height: 30px;
+				overflow: hidden;
+				@include box(vertical);
+				-webkit-line-clamp: 1;
+			}
+			.single-description{
+				width: 100%;
+				height: 48px;
+				font-size: 14px;
+				font-weight: 400;
+				line-height: 24px;
+				@include box(vertical);
+				-webkit-line-clamp: 2;
+				margin: 0;
+				overflow: hidden;
+			}
+		}
+		.rightbox{
+			text-align: center;
+			align-items: center;
+			display: flex;
+			display: -webkit-flex;
+			.num{
+				font-size: 30px;
+				font-weight: bold;
+				line-height: 30px;
+				margin: 1rem 0 0.5rem;
+			}
+			.text1{
+				font-size: 12px;
+				font-weight: 400;
+				color: $zdy_color1;
+				line-height: 20px;
+				margin:0 0 4px ;
+			}
+			.linkbtn{
+				display: inline-block;
+				width: 114px;
+				height: 50px;
+				background: $zdy_btn1_bg;
+				border-radius: 15px;
+				font-size: 17px;
+				font-weight: bold;
+				color: $zdy_btn1_color;
+				line-height: 50px;
+				text-align: center;
+			}
+			.linkbtn:hover{
+				background: $zdy_btn1_color-hover;
+			}
+		}
+	}
+	.post-nav{
+		display: none;
+	}
+	.relevantbox{
+	  padding: 20px 0;
+	  width: 200px;
+	  .titbox{
+		  margin-bottom: 10px;
+		  line-height: 28px;
+	  }
+	  .tit{
+		  font-size: 17px;
+		  font-weight: bold;
+		  margin: 0;
+		  float: left;
+	  }
+	  .morebtn{
+		  float: right;
+	  }
+	  [theme=auto] & {
+	    .morebtn{
+	    	color: $zdy_color8;
+	    }
+	    .morebtn:hover {
+	      color: $global-link-hover-color;
+	    }
+	  }
+	  [theme=light] & {
+	    .morebtn{
+	    	color: $zdy_color8;
+	    }
+	    .morebtn:hover {
+	      color: $global-link-hover-color;
+	    }
+	  }
+	}
+	.conrelevantbox{
+		display: none;
+		width: 100%;
+		
+		overflow: hidden;
+		position: relative;
+		padding-bottom: 10px;
+		.single-title{
+			border-bottom: none;
+			text-align: left;
+			margin-bottom: 0;
+		}
+		.swiper {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			position: relative;
+		  }
+	
+		  .swiper-slide {
+			text-align: center;
+			font-size: 18px;
+	
+			/* Center slide text vertically */
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-pack: center;
+			-ms-flex-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+		  }
+	
+		  .swiper-slide img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		  }
+	}
+	.content{
+		font-size: 14px;
+	}
+}

@@ -1,0 +1,74 @@
+.newssingle_w{
+	.newssinglebox{
+	  flex: 1;
+	  -webkit-flex: 1;
+	  margin-top: 20px;
+	  padding: 0 30px;
+	  overflow: hidden;
+	}
+	@supports ((position:-webkit-sticky) or (position:sticky)) {
+		.articlecataloguebox {
+			position: -webkit-sticky;
+			position: sticky;
+			top: 3.625rem;
+			z-index: 1;
+			height: calc(100vh - 14.5rem);
+		}
+	}
+	.articlecataloguebox{
+	  overflow-y: auto;
+	  overflow-x: hidden;
+	  -webkit-overflow-scrolling: touch;
+	  padding: 20px 0;
+	  width: 200px;
+	}
+	.articlecataloguebox::-webkit-scrollbar-thumb {
+	  background-color: $global-background-color;
+	[theme=dark] & {
+	  background-color: $global-background-color-dark;
+	}
+	[theme=black] & {
+	  background-color: $global-background-color-black;
+	}
+	  &:hover {
+	    background-color: $global-background-color;
+		[theme=dark] & {
+		  background-color: $global-background-color-dark;
+		}
+		[theme=black] & {
+		  background-color: $global-background-color-black;
+		}
+	  }
+	}
+	.newssinglebox .articlecataloguebox{
+		display: none;
+		width: 100%;
+		order: 0;
+	}
+	.msgbox,.msgbox a{
+		color: $zdy_color5;
+		font-size: 14px;
+	}
+	.msgbox a:hover {
+	  color: $global-link-hover-color;
+	}
+	.msgbox{
+		.time{
+			float: right;
+			color: $zdy_color4;
+		}
+		.author{
+			padding-right: 6px;
+		}
+	}
+	.featured-image{
+		margin-top: 0.8rem;
+	}
+	.content{
+		font-size: 14px;
+	}
+}
+
+// .sidebarbox_mb {
+//   flex: 0 1 320px;
+// }

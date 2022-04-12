@@ -1,0 +1,120 @@
+{{- define "list" }}
+    {{- .Params.Title | default (T .Section) | default .Section | dict "Some" | T "allSome" }} - {{ .Site.Title -}}
+{{- end -}}
+{{- define "content" -}}
+{{- $jqueryjs := resources.Get "js/zdycj/jquery.min.js" -}}
+{{- $fontsjs := resources.Get "js/zdycj/fonts.js" -}}
+<script type="text/javascript" src="{{ $jqueryjs.RelPermalink }}"></script>
+<script type="text/javascript" src="{{ $fontsjs.RelPermalink }}"></script>
+<div class="page alllist_conbox navlist_conbox">
+	
+	<!-- {{ if eq .Title "Navigations"}}
+	<span>123</span>
+	{{end}} -->
+	{{ .Scratch.Set "sidebartype" "Navigation" }}
+	<!-- ad -->
+	{{ partial "main/ad" . -}}
+	<!-- 小导航 -->
+	{{ partial "main/smheadnav" . -}}
+	<div class="conbox" id="alllist_con">
+		<!-- 侧边栏 -->
+		{{ partial "main/sidebar" . -}}
+		
+		<div class="pagelistcon">
+			<!-- 一级列表 -->
+			{{ if or (eq .Title "Navigations") (eq .Title "Navigation") }}
+			<div class="navslistbox">
+				{{ $thistypes := .Scratch.Get "thistypes" }}
+				{{- range $elem_index, $elem_val :=where .Site.RegularPages "Type" $thistypes -}}
+				<div class="conli">
+					<div class="topnav">
+						<p class="tit"><span>{{safeHTML .Params.ico}}</span>{{.Title}}</p>
+						
+						<!-- <div class="smnav">
+							{{ $.Scratch.Set "thisnav" .Params.navigation }}
+							{{ range $key, $value := $.Scratch.Get "thisnav" }}
+								{{ if eq $key 0}}
+								{{ $.Scratch.Set "gg" (printf "%s/%s" "navigation" $value | urlize | relLangURL)  }}
+								{{ end }}
+								<a type="{{$value}}" href="{{ printf "%s/%s" "navigation" $value | urlize | relLangURL }}/">{{$value}}</a>
+							{{ end }}
+							
+						</div> -->
+						<!-- <a class="morebtn" href="{{ $.Scratch.Get "gg"}}">{{ T `more`}} ></a> -->
+					</div>
+					<div class="smconbox">
+						{{- $opages := where .Site.RegularPages "Params.navigation" "intersect" .Params.navigation -}}
+						{{- $navigation := .Site.Params.list.navigation -}}
+						{{ $.Scratch.Set "thisnav" .Params.navigation }}
+						{{ range $key, $value := $.Scratch.Get "thisnav" }}
+							{{ if eq $key 0}}
+							{{ $.Scratch.Set "gg" (printf "%s/%s" "navigation" $value | urlize | relLangURL)  }}
+							{{ end }}
+							<div class="smcontit"><!-- <span>
+								<svg class="icon" aria-hidden="true">
+									<use xlink:href="#icon-wenzhang"></use>
+								</svg>
+							</span> -->{{$value}}<a class="morebtn" href="{{ $.Scratch.Get "gg"}}">{{ T `more`}} ></a></div>
+							<div class="conulbox">
+								{{- $opages := where $opages "Params.navigation" "intersect"  (slice $value) -}}
+								{{- $opages := where $opages "Params.hidePage" "!=" true -}}
+								{{ range $elem_index, $elem_val := $opages }}
+									{{ if lt $elem_index $navigation.paginate}}
+									<div class="zdy_navslistli">
+									{{- .Render "summary" -}}
+									</div>
+									{{ end }}
+								{{ end }}
+							</div>
+							<!-- <a type="{{$value}}" href="{{ printf "%s/%s" "navigation" $value | urlize | relLangURL }}/">{{$value}}</a> -->
+						{{ end }}
+					</div>
+					<!-- <div class="conulbox">
+						
+						{{- $pages := where .Site.RegularPages "Params.navigation" "intersect" .Params.navigation -}}
+						{{- $navigation := .Site.Params.list.navigation -}}
+						{{- $pages := where $pages "Params.hidePage" "!=" true -}}
+						{{ range $elem_index, $elem_val :=$pages }}
+							{{ if lt $elem_index $navigation.paginate}}
+							<div class="zdy_navslistli">
+							{{- .Render "summary" -}}
+							</div>
+							{{ end }}
+						{{ end }}
+					</div> -->
+				</div>
+				{{- end -}}
+			
+		{{ else}}
+			<div class="topnav topnav1 clear">
+				<p class="tit"><!-- <span>
+					<svg class="icon" aria-hidden="true">
+						<use xlink:href="#icon-wenzhang"></use>
+					</svg>
+				</span> -->{{.Title}}</p>
+			</div>
+			<div class="conulbox">
+			{{- $pages := .Pages -}}
+			{{- $navigation := .Site.Params.list.navigation -}}
+			{{- $pages := where $pages "Params.hidePage" "!=" true -}}
+			{{- with $navigation.paginate1 | default .Site.Params.paginate1 -}}
+			    {{- $pages = $.Paginate $pages . -}}
+			{{- else -}}
+			    {{- $pages = .Paginate $pages -}}
+			{{- end -}}
+			{{- range $pages.Pages -}}
+			   <div class="zdy_navslistli">
+					{{- .Render "summary" -}}
+			    </div>
+			{{- end -}}
+			{{- partial "paginator.html" . -}}
+			</div>
+		{{ end }}
+			</div>
+		</div>
+	</div>
+</div>
+<script type="text/javascript">
+	$(".desktop .menu-item").eq(2).addClass("active")
+</script>
+{{- end -}}
