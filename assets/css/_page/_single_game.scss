@@ -167,7 +167,7 @@
 	}
 	.gamesmsgbox1{
 		width: 100%;
-		margin-bottom: 15px;
+		margin-bottom: 25px;
 		// display: flex;
 		// display: -webkit-flex;
 		border: 1px solid $gangbg-dark;
@@ -291,22 +291,28 @@
 		}
 		.zcon{
 			border-radius: 10px;
+			text-align: right;
 			a{
-				margin-bottom: 5px;
-				float: left;
+				margin-bottom: 8px;
+				display: inline-block;
 				height: 32px;
 				width: 32px;
 				background: $zdy_color9;
 				font-size: 20px;
 				[theme=dark] & {
-					color: #a4a5a8;
+					color: $global-font-color-dark;
+					background: $zdy-bg-dark;
 				}
 				[theme=black] & {
-					color: #a4a5a8;
+					color: $global-font-color-dark;
+					background: $zdy-bg-dark;
 				}
 				border-radius: $border-radius-size5;
 				margin-right: 5px;
 				text-align: center;
+			}
+			a:hover{
+				color: inherit;
 			}
 		}
 	}

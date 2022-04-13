@@ -17,8 +17,15 @@
 		{{ partial "main/sidebar1" . -}}
 		
 		<div class="pagelistcon">
-			<p class="title">{{ T `indextext3` }}</p>
-			<p class="msgtext">{{ T `gamestext1` }}</p>
+			<!-- <p class="title">{{ T `indextext3` }}</p> -->
+			{{ if T (replace .Title " " "-") }}
+				<p class="title">{{ T (replace .Title " " "-") }}</p>
+			{{ else }}
+				<p class="title">{{.Title}}</p>
+			{{ end }}
+			
+			
+			<!-- <p class="msgtext">{{ T `gamestext1` }}</p> -->
 			{{- if eq .Title "Games" -}}
 			<div class="liconbox">
 				<p class="smtit"><svg class="icon" aria-hidden="true">

@@ -369,6 +369,7 @@ header {
 				font-size: $header-title-font-size;
 				max-width: 80%;
 			}
+			
 			.menu-toggle {
 				line-height: 4rem;
 				cursor: pointer;
@@ -452,6 +453,35 @@ header {
 				display: block;
 				line-height: 2.5rem;
 				margin: 0 10px;
+			}
+			.menu-item::after{
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 2px;
+				background-color: $header-hover-color;
+				[theme=dark] & {
+					background-color: $header-hover-color-dark;
+				}
+				[theme=black] & {
+					background-color: $header-hover-color-black;
+				}
+				left: 50%;
+				bottom: 0px;
+				@include transition(all ease-out 0.3s);
+			}
+			.menu-item.active::after{
+				width: 30%;
+				left: 35%;
+			}
+			.menu-item.active {
+				color: $header-hover-color;
+				[theme=dark] & {
+					color: $header-hover-color-dark;
+				}
+				[theme=black] & {
+					color: $header-hover-color-black;
+				}
 			}
 			&.active {
 				display: block;

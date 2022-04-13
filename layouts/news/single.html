@@ -41,8 +41,8 @@
 				</span>
 				{{- range .Params.news -}}
 					{{- $news := partialCached "function/path.html" . . | printf "/news/%v" | $.Site.GetPage -}}
-					{{ if T $news.Title }}
-						<a href="{{$news.RelPermalink}}">{{ T $news.Title}}</a>
+					{{ if T (replace $news.Title " " "-") }}
+						<a href="{{$news.RelPermalink}}">{{ T (replace $news.Title " " "-")}}</a>
 					{{ else }}
 						<a href="{{$news.RelPermalink}}">{{$news.Title}}</a>
 					{{ end }}
@@ -253,6 +253,7 @@
 </div>
 <script type="text/javascript">
 	$(".desktop .menu-item").eq(1).addClass("active");
+	$("#menu-mobile .menu-item").eq(1).addClass("active");
 	// View an image.
 	var viewer = new Viewer(document.getElementById('image'), {
 	  inline: true,
