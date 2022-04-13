@@ -257,3 +257,10 @@ other = "metaverse"
 [socialscore]
 other = "Social Score"
 
+#游戏分类
+[Action]
+other = "Action"
+[Adventure]
+other = "Adventure"
+[Arcade]
+other = "Arcade"
