@@ -264,4 +264,97 @@ other = "动作"
 other = "冒险"
 [arcade]
 other = "街机"
+[art]
+other = "艺术"
+[augmented-reality]
+other = "增强现实"
+[auto-battler]
+other = "自动作战"
+[battle-royale]
+other = "大逃杀"
+[board]
+other = "桌游"
+[brawler]
+other = "格斗游戏"
+[breeding]
+other = "养成"
+[building]
+other = "建造"
+[card]
+other = "卡牌"
+[casual]
+other = "休闲游戏"
+[city-building]
+other = "城市建设"
+[collectible]
+other = "收藏品"
+[defi]
+other = "DeFi"
+[dungeon]
+other = "地牢"
+[educational]
+other = "教育"
+[esports]
+other = "电子竞技"
+[fantasy]
+other = "幻想"
+[fighting]
+other = "战争"
+[horror]
+other = "恐怖"
+[idle]
+other = "放置"
+[logic]
+other = "推理逻辑"
+[minigame]
+other = "迷你游戏"
+[mining]
+other = "挖矿"
+[mmo]
+other = "大型多人在线"
+[mmorpg]
+other = "多人角色扮演"
+[moba]
+other = "多人竞技"
+[open-world]
+other = "开放世界"
+[party]
+other = "派对"
+[platformer]
+other = "平台游戏"
+[puzzle]
+other = "竞猜"
+[pvp]
+other = "个人对战"
+[racing]
+other = "赛车"
+[rpg]
+other = "角色扮演"
+[sci-fi]
+other = "科幻"
+[shooter]
+other = "射击"
+[simulation]
+other = "模拟经营"
+[social]
+other = "社交"
+[space]
+other = "太空"
+[sports]
+other = "体育"
+[strategy]
+other = "战略"
+[survival]
+other = "生存"
+[tactical]
+other = "战术"
+[tower-defense]
+other = "塔防"
+[turn-based]
+other = "回合制"
+[virtual-reality]
+other = "虚拟现实"
+[virtual-world]
+other = "虚拟世界"
+
 
