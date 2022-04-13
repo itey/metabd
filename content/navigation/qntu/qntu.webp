@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+  <Code>NoSuchKey</Code>
+  <Message>The specified key does not exist.</Message>
+  <RequestId>624FF44753BCC631342B6D61</RequestId>
+  <HostId>img.1234btc.com</HostId>
+  <Key>logo/20180914/quanta-utility-token.webp</Key>
+</Error>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+  <Code>InvalidArgument</Code>
+  <Message>The characters encoding must be utf-8.</Message>
+  <RequestId>624FF5966F8C2631301712EC</RequestId>
+  <HostId>img.1234btc.com</HostId>
+  <ArgumentName>object</ArgumentName>
+  <ArgumentValue>logo/qk/oukuainiuziben£¨BlockoxFund£©.jpg</ArgumentValue>
+</Error>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+  <Code>NoSuchKey</Code>
+  <Message>The specified key does not exist.</Message>
+  <RequestId>624FF4D3DC44E03337EC9656</RequestId>
+  <HostId>img.1234btc.com</HostId>
+  <Key>logo/20180918/eden.webp</Key>
+</Error>

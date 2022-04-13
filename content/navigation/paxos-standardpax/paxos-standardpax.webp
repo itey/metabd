@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+  <Code>NoSuchKey</Code>
+  <Message>The specified key does not exist.</Message>
+  <RequestId>624FF50653BCC63731B80665</RequestId>
+  <HostId>img.1234btc.com</HostId>
+  <Key>logo/2018/paxosstandard_1537429543644_webp.webp</Key>
+</Error>

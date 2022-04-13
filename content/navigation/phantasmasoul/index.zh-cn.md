@@ -1,0 +1,20 @@
+﻿---
+weight: 
+title: "Phantasma(SOUL)"
+description: "Phantasma是构建在NEO区块链上的下一代消息协议，它是去中心化、快速且安全的协议"
+date: 2022-03-25T21:57:40+08:00
+lastmod: 2022-03-25T16:45:40+08:00
+draft: false
+authors: ["Metabd"]
+featuredImage: "phantasmasoul.webp"
+link: ""
+tags: ["数字代币","Phantasma(SOUL)"]
+categories: ["navigation"]
+navigation: ["数字代币"]
+lightgallery: true
+toc: true
+pinned: false
+recommend: false
+recommend1: false
+---
+Phantasma是构建在NEO区块链上的下一代消息协议，它是去中心化、快速且安全的协议。
