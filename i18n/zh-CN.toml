@@ -258,10 +258,10 @@ other = "评分"
 
 
 #游戏分类
-[Action]
-other = "动作游戏"
-[Adventure]
-other = "冒险游戏"
-[Arcade]
-other = "街机游戏"
+[action]
+other = "动作"
+[adventure]
+other = "冒险"
+[arcade]
+other = "街机"
 
