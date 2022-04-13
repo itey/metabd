@@ -6,7 +6,7 @@ date: 2022-03-25T21:57:40+08:00
 lastmod: 2022-03-25T16:45:40+08:00
 draft: false
 authors: ["Metabd"]
-featuredImage: "coin-insider.jfif"
+featuredImage: "coin-insider.jpg"
 link: "https://www.coininsider.com/"
 tags: ["元宇宙资讯","Coin Insider"]
 categories: ["navigation"]
