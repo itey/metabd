@@ -4,7 +4,7 @@
 		white-space:nowrap;
 		font-size:20px;
 		span a{
-			margin: 0 3px;
+			margin: 0 0px;
 		}
 	}
   .post-info {
@@ -160,6 +160,12 @@
 	  font-size: 12px;
 	  font-weight: 400;
 	  color: $zdy_color5;
+	  [theme=dark] & {
+	    color: $global-font-color-dark;
+	  }
+	  [theme=black] & {
+	    color:$global-font-color-dark;
+	  }
 	  line-height: 24px;
 	  float: right;
   }

@@ -113,10 +113,16 @@
 			overflow: hidden;
 			flex: 1;
 			-webkit-flex: 1;
+			display: flex;
+			display: -webkit-flex;
+			flex-direction: column;
+			justify-content: center;
+			-webkit-flex-direction: column;
+			-webkit-justify-content: center;
 			.single-title{
-				padding-top: 6px;
+				padding-top: 4px;
 				margin: 0;
-				font-size: 15px;
+				font-size: 18px;
 				font-weight: bold;
 				color: $header-font-color;
 				line-height: 24px;
@@ -134,10 +140,13 @@
 				color: $zdy_color2;
 				line-height: 18px;
 				overflow: hidden;
-				height: 36px;
+				max-height: 36px;
 				@include box(vertical);
 				-webkit-line-clamp: 2;
-				p{margin: 0;}
+					margin-bottom: 6px;
+				p{
+					margin: 0;
+				}
 				[theme=dark] & {
 				  color: $global-font-secondary-color-dark;
 				}

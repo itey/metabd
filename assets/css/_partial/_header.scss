@@ -300,6 +300,17 @@ header {
 				font-size: 16px;
 			}
 		}
+		.headbox2 .menu-item:hover{
+			opacity: 0.6;
+			[theme=dark] & {
+				opacity: 1;
+				color: $header-hover-color-dark;
+			}
+			[theme=black] & {
+				opacity: 1;
+				color: $header-hover-color-black;
+			}
+		}
 	}
 
 	&.open .header-wrapper .menu .menu-item.search {

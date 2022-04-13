@@ -69,15 +69,21 @@
 		overflow: hidden;
 		flex: 1;
 		-webkit-flex: 1;
+		display: flex;
+		display: -webkit-flex;
+		flex-direction: column;
+		justify-content: center;
+		-webkit-flex-direction: column;
+		-webkit-justify-content: center;
 		.single-title{
-			font-size: 15px;
-			margin-top: 5px;
+			font-size: 18px;
 			font-weight: bold;
 			color: $header-font-color;
 			line-height: 24px;
 			overflow: hidden;
 			@include box(vertical);
 			-webkit-line-clamp: 1;
+			margin-bottom: 0;
 			// margin: 0 auto;
 			a{
 				display: block;
@@ -91,6 +97,10 @@
 			overflow: hidden;
 			@include box(vertical);
 			-webkit-line-clamp: 2;
+			margin-top: 0.5rem;
+			p{
+				margin: 0;
+			}
 			[theme=dark] & {
 			  color: $global-font-secondary-color-dark;
 			}

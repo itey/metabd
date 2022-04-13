@@ -956,7 +956,7 @@
   margin: 0 0 0 0.3125em;
 }
 .gt-container .gt-user .gt-ico svg {
-  fill: inherit;
+  fill: currentColor;
 }
 .gt-container .gt-user .is--poping .gt-ico svg {
   fill: #486EFA;

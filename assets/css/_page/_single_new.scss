@@ -47,7 +47,7 @@
 	}
 	.msgbox,.msgbox a{
 		color: $zdy_color5;
-		font-size: 14px;
+		font-size: 13px;
 	}
 	.msgbox a:hover {
 	  color: $global-link-hover-color;
@@ -72,3 +72,6 @@
 // .sidebarbox_mb {
 //   flex: 0 1 320px;
 // }
+.newssingle_w .smheadnavbox .midbox{
+	margin-left: 30px;
+}

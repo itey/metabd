@@ -167,6 +167,7 @@
 	}
 	.gamesmsgbox1{
 		width: 100%;
+		margin-bottom: 15px;
 		// display: flex;
 		// display: -webkit-flex;
 		border: 1px solid $gangbg-dark;
@@ -272,7 +273,9 @@
 		display: flex;
 		display: -webkit-flex;
 		margin-bottom: 20px;
+		line-height: 32px;
 		.tit{
+			padding-right: 5px;
 			flex: 1;
 			-webkit-flex: 1;
 			color:$zdy_color4;
@@ -284,17 +287,17 @@
 			}
 			font-size: 14px;
 			margin: 0;
+			white-space:nowrap;
 		}
 		.zcon{
-			
 			border-radius: 10px;
-			
 			a{
+				margin-bottom: 5px;
 				float: left;
-				height: 26px;
-				width: 26px;
+				height: 32px;
+				width: 32px;
 				background: $zdy_color9;
-				
+				font-size: 20px;
 				[theme=dark] & {
 					color: #a4a5a8;
 				}

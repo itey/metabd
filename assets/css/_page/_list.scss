@@ -94,6 +94,8 @@
 			display: -webkit-flex;
 			flex-direction: column;
 			justify-content: center;
+			-webkit-flex-direction: column;
+			-webkit-justify-content: center;
 			padding-left: 14px;
 			.single-title{
 				overflow: hidden;
@@ -425,7 +427,11 @@
 	// 	bottom: 0;
 	// 	left: 0;
 	// }
-	
+	.zdy_gameslistli:hover{
+		.featured-image-preview{
+			@include transform(scale(1.05));
+		}
+	}
 	.zdy_gameslistli{
 		float: left;
 		width: 50%;
@@ -439,6 +445,7 @@
 			border-bottom: 1px solid $gangbg;
 		}
 		.featured-image-preview{
+			@include transition(transform 0.4s ease);
 			width: 96px;
 			height: 96px;
 			border-radius: 15px;
@@ -460,12 +467,19 @@
 		}
 		.zdy_rightbox{
 			padding-left: 9px;
+			padding-right: 20px;
 			overflow: hidden;
 			flex: 1;
 			-webkit-flex: 1;
+			display: flex;
+			display: -webkit-flex;
+			flex-direction: column;
+			justify-content: center;
+			-webkit-flex-direction: column;
+			-webkit-justify-content: center;
 			.single-title{
 				margin: 0;
-				font-size: 15px;
+				font-size: 18px;
 				font-weight: bold;
 				color: $header-font-color;
 				line-height: 24px;
@@ -490,7 +504,7 @@
 				color: $zdy_color2;
 				line-height: 18px;
 				overflow: hidden;
-				height: 36px;
+				max-height: 36px;
 				@include box(vertical);
 				-webkit-line-clamp: 2;
 				[theme=dark] & {
@@ -507,22 +521,20 @@
 			  .gtypesbox,.gtypesbox a{
 			  	color: $zdy_color6;
 			  }
-			  .gtypesbox a:hover {
-			    color: $global-link-hover-color;
-			  }
 			}
 			[theme=light] & {
 			  .gtypesbox,.gtypesbox a{
 			  	color: $zdy_color6;
 			  }
-			  .gtypesbox a:hover {
-			    color: $global-link-hover-color;
-			  }
+			}
+			.gtypesbox a:hover {
+			  color: $zdy_btn1_color-hover;			
 			}
 			.gtypesbox{
 				display: block;
 				line-height: 18px;
 				height: 18px;
+				font-size: 12px;
 				overflow: hidden;
 				@include box(vertical);
 				-webkit-line-clamp: 1;

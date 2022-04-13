@@ -380,7 +380,14 @@ width: 1290px;
 	}
 	.gameslist_conbox .pagelistcon{
 		margin-left: 0;
-		padding: 0 20px;
+		padding: 0;
+		box-shadow: none
+	}
+	.gameslist_conbox .title{
+		padding-top: 10px;
+	}
+	.gameslist_conbox .sidebarbox_mb ul {
+		padding-top:12px;
 	}
 	.gamesingle_w .gamescreenbox .zcon{
 		padding: 10px;
@@ -425,6 +432,12 @@ width: 1290px;
 		width: 100px;
 		height: 50px;
 	}
+	.gameslist_conbox .zdy_gameslistli .zdy_rightbox{
+		padding-right: 0;
+	}
+	.gamesingle_w .socialcontactbox{
+		display: block;
+	}
 }
 @media only screen and (max-width: 600px) {
 	.slideboxw .bigshowb .swiper-slide .title{
@@ -438,7 +451,13 @@ width: 1290px;
 		  margin-bottom: 20px;
 		  margin-top: 0;
 	}
-	
+	.slideboxw .bigshowb .swiper-pagination-white .swiper-pagination-bullet-active{
+		width: 16px;
+	}
+	.slideboxw .bigshowb .swiper-pagination-bullet{
+		width: 10px;
+		margin-right:5px;
+	}
 	.slideboxw .bigshowb .swiper-pagination{
 		bottom: 5px;
 		padding: 0 15px;
