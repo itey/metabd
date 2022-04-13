@@ -18,7 +18,11 @@
 					<p>
 						{{ $.Scratch.Set "thisnav" .Params.news }}
 						{{ range $key, $value := $.Scratch.Get "thisnav" }}
-							<a type="{{$value}}" href="{{ printf "%s/%s" "news" $value | urlize | relLangURL }}/">{{$value}}</a>
+							{{ if T (replace $value " " "-") }}
+								<a type="{{$value}}" href="{{ printf "%s/%s" "news" $value | urlize | relLangURL }}/">{{ T (replace $value " " "-")}}</a>
+							{{ else }}
+								<a type="{{$value}}" href="{{ printf "%s/%s" "news" $value | urlize | relLangURL }}/">{{$value}}</a>
+							{{ end }}
 						{{ end }}
 					</p>
 				</div>
@@ -37,7 +41,11 @@
 					<p>
 						{{ $.Scratch.Set "thisnav" .Params.navigation }}
 						{{ range $key, $value := $.Scratch.Get "thisnav" }}
+							{{ if T (replace $value " " "-") }}
+							<a type="{{$value}}" href="{{ printf "%s/%s" "navigation" $value | urlize | relLangURL }}/">{{ T (replace $value " " "-")}}</a>
+							{{ else }}
 							<a type="{{$value}}" href="{{ printf "%s/%s" "navigation" $value | urlize | relLangURL }}/">{{$value}}</a>
+							{{ end }}
 						{{ end }}
 					</p>
 				</div>

@@ -438,9 +438,13 @@ width: 1290px;
 		  margin-bottom: 20px;
 		  margin-top: 0;
 	}
-	.slideboxw .bigshowb .swiper-container-horizontal>.swiper-pagination-bullets, 
-	.slideboxw .bigshowb .swiper-pagination-custom, .swiper-pagination-fraction{
+	
+	.slideboxw .bigshowb .swiper-pagination{
 		bottom: 5px;
+		padding: 0 15px;
+	}
+	.slideboxw .bigshowb .swiper-slide .conbox{
+		padding: 0 15px;
 	}
 	#homenavigation .box3 li{
 		width: 20%;

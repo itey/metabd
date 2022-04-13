@@ -43,12 +43,17 @@
 			$("#homesilde").show()
 			setTimeout(function(){
 				var swiper = new Swiper('.swiper-container', {
-					pagination: '.swiper-pagination',
-					paginationClickable: true,
-					parallax: true,
-					speed: 600,
-					autoplay: 5000,//可选选项，自动滑动
-					loop:true
+					autoplay:true,//等同于以下设置
+					loop:true,
+					pagination: {
+					  el: ".swiper-pagination",
+					  // paginationClickable: true,
+					  // parallax: true,
+					  // speed: 600,
+					  // autoplay: 5000,//可选选项，自动滑动
+					  // 
+					},
+					
 				});
 			})
 			slide_resizefn();

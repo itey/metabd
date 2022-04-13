@@ -63,8 +63,10 @@
 		},
 		ad_resizefn:function(){
 			var _this = this;
-			var w = _this.dom.outerWidth()/_this.adbl
-			_this.dom.css("height",w)
+			setTimeout(function(){
+				var w = _this.dom.outerWidth()/_this.adbl
+				_this.dom.css("height",w)
+			})
 		},
 		randomNum:function(minNum,maxNum){
 			switch(arguments.length){

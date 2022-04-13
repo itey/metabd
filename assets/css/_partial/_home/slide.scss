@@ -105,12 +105,13 @@
 	.bigshowb .swiper-pagination{
 		text-align: left;
 		padding: 0 30px;
+		bottom: 10px;
 	}
 	.bigshowb .swiper-pagination-bullet{
 		width: 10px;
 		height: 3px;
-		background: rgba(255, 255, 255, 0.5);
 		border-radius: 1px;
+		margin-right:10px;
 	}
 	.bigshowb .swiper-pagination-white .swiper-pagination-bullet-active{
 		width: 17px;

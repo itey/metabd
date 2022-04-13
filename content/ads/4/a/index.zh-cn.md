@@ -7,7 +7,7 @@ draft: false
 authors: ["Xiaoyi"]
 description: "https://www.baidu.com/"
 link: "https://www.baidu.com/"
-featuredImage: "3.jpg"
+featuredImage: "1.jpg"
 iid: 1
 
 adtype: "4"

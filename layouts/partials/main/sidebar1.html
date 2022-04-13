@@ -9,7 +9,11 @@
 		<li>
 			<p class="tit">{{ T `types`}}</p>
 			{{ range $taxonomyname, $taxonomy := .Site.Taxonomies.games }}
-			  <a type="{{ $taxonomyname }}" href="{{ "games/" | relLangURL}}{{ $taxonomyname | urlize }}"><span>{{ $taxonomyname }}</span><span>{{ sub .Count 1 }}</span></a>
+				{{ if T (replace $taxonomyname " " "-") }}
+				  <a type="{{ $taxonomyname }}" href="{{ "games/" | relLangURL}}{{ $taxonomyname | urlize }}"><span>{{ T (replace $taxonomyname " " "-") }}</span><span>{{ sub .Count 1 }}</span></a>
+				{{ else }}
+				  <a type="{{ $taxonomyname }}" href="{{ "games/" | relLangURL}}{{ $taxonomyname | urlize }}"><span>{{ humanize $taxonomyname }}</span><span>{{ sub .Count 1 }}</span></a>
+				{{ end }}
 			{{ end }}
 		</li>
 	{{- end -}}

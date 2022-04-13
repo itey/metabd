@@ -41,7 +41,11 @@
 				</span>
 				{{- range .Params.news -}}
 					{{- $news := partialCached "function/path.html" . . | printf "/news/%v" | $.Site.GetPage -}}
-					<a href="{{$news.RelPermalink}}">{{$news.Title}}</a>
+					{{ if T $news.Title }}
+						<a href="{{$news.RelPermalink}}">{{ T $news.Title}}</a>
+					{{ else }}
+						<a href="{{$news.RelPermalink}}">{{$news.Title}}</a>
+					{{ end }}
 				{{- end -}}
 				{{- with .Site.Params.dateformat | default "2006-01-02" | .PublishDate.Format -}}
 				<div class="time">

@@ -120,6 +120,7 @@
 					<p class="tit1">{{ T `footertext1`}}</p>
 					<p>{{ T `footertext2`}}</p>
 				</div>
+				{{- if .Site.Params.subscribe.enable -}}
 				<div class="rightbox">
 					<div class="inputbox">
 						<p class="p1"><input type="text" name="" id="" value="" placeholder="{{T `footertext5`}}"/></p>
@@ -127,6 +128,7 @@
 					</div>
 					<p class="p2">{{ T `footertext4`}}</p>
 				</div>
+				{{- end -}}
 			</div>
 		</div>
 	</div>
