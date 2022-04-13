@@ -1,9 +1,19 @@
 {{- $params := .Params | merge .Site.Params.page -}}
 
 <article class="single summary" itemscope itemtype="http://schema.org/Article">
+	<a href="{{ $.RelPermalink }}" aria-label={{ $.Title }} title={{ $.Title }}>
 	{{- /* Featured image */ -}}
 	{{ if reflect.IsSlice $params.featuredImage }}
-		
+		{{ range $elem_val :=first 1 $params.featuredImage }}
+			{{- $image := $params.featuredImagePreview | default $elem_val -}}
+			{{- $height := "auto" -}}
+			{{- $width := "auto" -}}
+			{{- with $image -}}
+				<div class="featured-image-preview">
+					{{- dict "Src" . "Title" $.Description "Resources" $.Resources "Height" $height "Width" $width | partial "plugin/image.html" -}}
+				</div>
+			{{- end -}}
+		{{ end }}
 	{{else}}
 		{{- $image := $params.featuredImagePreview | default $params.featuredImage -}}
 		{{- $height := "auto" -}}
@@ -24,20 +34,15 @@
 			{{- $width = .Width -}}
 		{{- end -}}
 			{{- with $image -}}
-			<a href="{{ $.RelPermalink }}" aria-label={{ $.Title }} title={{ $.Title }}>
-					<div class="featured-image-preview">
-						
-							{{- dict "Src" . "Title" $.Description "Resources" $.Resources "Height" $height "Width" $width | partial "plugin/image.html" -}}
-					   
-					</div>
-				{{- end -}}
+				<div class="featured-image-preview">
+					{{- dict "Src" . "Title" $.Description "Resources" $.Resources "Height" $height "Width" $width | partial "plugin/image.html" -}}
+				</div>
+			{{- end -}}
 	{{- end -}}			
-			{{- /* Title */ -}}
-			<div class="rightbox">
-				<h4 class="single-title" itemprop="name headline">
-					{{ .Title }}
-				</h4>
-			</div>
-		</a>
-    
+	<div class="rightbox">
+			<h4 class="single-title" itemprop="name headline">
+				{{ .Title }}
+			</h4>
+		</div>
+	</a>
 </article>

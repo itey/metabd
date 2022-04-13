@@ -29,12 +29,12 @@
 		top:50%;
 		margin-top: -5px;
 		background-color: $single-link-color;
-        [theme=dark] & {
-          background-color: $single-link-color-dark;
-        }
-        [theme=black] & {
-          background-color: $single-link-color-black;
-        }
+        // [theme=dark] & {
+        //   background-color: $single-link-color-dark;
+        // }
+        // [theme=black] & {
+        //   background-color: $single-link-color-black;
+        // }
       }
 	
       ul {

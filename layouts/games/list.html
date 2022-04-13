@@ -132,5 +132,11 @@
 	if(n2%2 ==0){
 		$(".smliconbox2 .zdy_gameslistli").eq(n2-2).css("border-color","rgba(0,0,0,0)")
 	}
+	$(".liconbox").each(function(){
+		if($(this).find(".zdy_gameslistli").length<=0){
+			$(this).hide()
+		}
+	})
+	
 </script>
 {{- end -}}

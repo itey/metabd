@@ -346,21 +346,23 @@
 		<!-- 相关资讯 -->
 		<div class="relevantbox articlecatalogueboxad" >
 			<!-- {{ "newstags" | relLangURL }}?tags={{ range .Params.tags }}{{ . | urlize }},{{ end }} -->
-			<div class="titbox clear">
-				<p class="tit">{{ T `relevantcon`}}</p><a href="{{"news" | relLangURL}}" class="morebtn">{{ T `more`}} ></a>
-			</div>
-			<div class="">
-				{{- $pages := where .Site.RegularPages "Type" "news" -}}
-				{{- $pages := where $pages "Params.tags" "intersect" .Params.tags -}}
-				
-				{{- $pages := where $pages "Params.hidePage" "!=" true -}}
-				{{ range $elem_index, $elem_val :=$pages }}
-					{{ if lt $elem_index 6}}
-					<div class="relevantlistli">
-					{{- partial "single/relevantsummary.html" . -}}
-					</div>
+			<div class="relevantbox_con">
+				<div class="titbox clear">
+					<p class="tit">{{ T `relevantcon`}}</p><a href="{{"news" | relLangURL}}" class="morebtn">{{ T `more`}} ></a>
+				</div>
+				<div class="">
+					{{- $pages := where .Site.RegularPages "Type" "news" -}}
+					{{- $pages := where $pages "Params.tags" "intersect" .Params.tags -}}
+					
+					{{- $pages := where $pages "Params.hidePage" "!=" true -}}
+					{{ range $elem_index, $elem_val :=$pages }}
+						{{ if lt $elem_index 6}}
+						<div class="relevantlistli">
+						{{- partial "single/relevantsummary.html" . -}}
+						</div>
+						{{ end }}
 					{{ end }}
-				{{ end }}
+				</div>
 			</div>
 			{{ partial "main/ad3" . -}}
 		</div>
@@ -428,6 +430,10 @@
 		 	var conimages = new Viewer(document.getElementById('content'));
 		 },1200)
 	 })
+	 
+	 if($(".relevantbox_con .relevantlistli").length<=0){
+		 $(".relevantbox_con").hide()
+	 }
 </script>
 {{- end -}}
 
